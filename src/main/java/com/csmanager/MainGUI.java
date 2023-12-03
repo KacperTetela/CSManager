@@ -6,6 +6,7 @@ public class MainGUI {
 
         PlayerCreator playerCreator = new PlayerCreator();
         playerCreator.listPrinter();
+        TeamCreator teamCreator = new TeamCreator(playerCreator);
 
     }
 }
