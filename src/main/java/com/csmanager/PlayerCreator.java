@@ -26,15 +26,13 @@ public class PlayerCreator {
             Player currentPlayer = players.get(i);
             if (currentPlayer != null && !currentPlayer.getName().isEmpty()) {
                 player = currentPlayer;
-                break;
+                return player;
             }
         }
 
         if (player == null) {
-            System.out.println("Not Exist");
-            //return new Player("Not Exist",1,1);
+            throw new RuntimeException("free player not found");
         }
-
         return player;
     }
 
@@ -47,6 +45,10 @@ public class PlayerCreator {
                 players.get(i).setFaceitRanking(0);
             }
         }
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 
 }

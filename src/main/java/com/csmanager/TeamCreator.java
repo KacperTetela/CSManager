@@ -1,18 +1,25 @@
 package com.csmanager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TeamCreator {
+    private List<Team> teams = new ArrayList<>();
     private PlayerCreator playerCreator;
 
     public TeamCreator(PlayerCreator playerCreator) {
         this.playerCreator = playerCreator;
-        createNewTeam();
-    }
+        playerCreator.getPlayers();
 
-    private void createNewTeam() {
-        for (int i = 0; i < 5; i++) {
-            playerCreator.deletePlayer(playerCreator.getFreePlayer().getName());
+        for (int i = 0 ; i < 2; i++) {
+            Team team = new Team();
+            teams.add(team);
+            for (int j = 0; j < 5; j++) {
+                teams.get(i).addPlayer(playerCreator.getPlayers().get(j+(i*5)));
+            }
         }
-        Team team = new Team();
+        System.out.println(teams.get(0).toString());
+        System.out.println(teams.get(1).toString());
     }
 
 }
