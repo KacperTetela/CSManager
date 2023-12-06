@@ -6,6 +6,7 @@ import java.util.List;
 public class Team {
     private List<Player> players = new ArrayList<>();
     private PlayerCreator playerCreator;
+    private int teamScore;
 
     public Team() {
     }
@@ -28,6 +29,22 @@ public class Team {
         return "Team{" +
                 "players=" + players +
                 '}';
+    }
+
+    public int getTeamSkillLevel() {
+        int teamSkillLevel = 0;
+        for (int i = 0; i < players.size(); i++) {
+            teamSkillLevel += players.get(i).getSkillLevel();
+        }
+        return teamSkillLevel;
+    }
+
+    public int getTeamScore() {
+        return teamScore;
+    }
+
+    public void setTeamScore(int teamScore) {
+        this.teamScore = teamScore;
     }
 
 }

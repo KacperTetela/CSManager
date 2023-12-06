@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Player {
     private String name;
     private int experience;
-    private int faceitRanking;
+    private int skillLevel;
 
-    public Player(String name, int experience, int faceitRanking) {
+    public Player(String name, int experience, int skillLevel) {
         this.name = name;
         this.experience = experience;
-        this.faceitRanking = faceitRanking;
+        this.skillLevel = skillLevel;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class Player {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", experience=" + experience +
-                ", faceitRanking=" + faceitRanking +
+                ", faceitRanking=" + skillLevel +
                 '}';
     }
 
@@ -47,7 +47,11 @@ public class Player {
         this.experience = experience;
     }
 
-    public void setFaceitRanking(int faceitRanking) {
-        this.faceitRanking = faceitRanking;
+    public void setSkillLevel(int skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public int getSkillLevel() {
+        return skillLevel;
     }
 }

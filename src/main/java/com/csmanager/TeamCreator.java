@@ -22,4 +22,7 @@ public class TeamCreator {
         System.out.println(teams.get(1).toString());
     }
 
+    public List<Team> getTeams() {
+        return teams;
+    }
 }

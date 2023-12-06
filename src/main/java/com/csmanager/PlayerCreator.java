@@ -42,7 +42,7 @@ public class PlayerCreator {
             if (players.get(i).getName().equals(name)) {
                 players.get(i).setName("");
                 players.get(i).setExperience(0);
-                players.get(i).setFaceitRanking(0);
+                players.get(i).setSkillLevel(0);
             }
         }
     }
