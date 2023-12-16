@@ -1,24 +1,24 @@
 package com.csmanager;
 
 public class Match {
-    private Team team1;
-    private Team team2;
+    private LineUp lineUp1;
+    private LineUp lineUp2;
     private int team1Score;
     private int team2Score;
 
-    public Match(Team team1, Team team2) {
-        this.team1 = team1;
-        this.team2 = team2;
+    public Match(LineUp lineUp1, LineUp lineUp2) {
+        this.lineUp1 = lineUp1;
+        this.lineUp2 = lineUp2;
         team1Score = 0;
         team2Score = 0;
     }
 
-    public Team getTeam1() {
-        return team1;
+    public LineUp getTeam1() {
+        return lineUp1;
     }
 
-    public Team getTeam2() {
-        return team2;
+    public LineUp getTeam2() {
+        return lineUp2;
     }
 
     public int getTeam1Score() {

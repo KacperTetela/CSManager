@@ -1,24 +1,37 @@
-package com.csmanager;
+package com.csmanager.playermodel;
 
 import java.util.Objects;
 
 public class Player {
+    private Long id;
     private String name;
-    private int experience;
-    private int skillLevel;
+    //doswiadczenie
+    private int daysInTeams;
+    private float consistency;
+    //potencjal wzgledem roli
+    private float potentialAsRifler;
+    private float potentialAsSniper;
+    private float potentialAsLurker;
+    private float potentialAsIGL;
+    //zdolnosci riflerskie
+    private float agressionAsRiflerAsRiflerPoints;
+    private float defensivnessAsRiflerPoints;
+    //zdolnosci przecinania rotacji
+    private float lurkingPoints;
+    //zdolnosci strzeleckie ze snajperki
+    private float snipingPoints;
+
+    //zdolnosci przywodcze
+    private float leadingAsIGL;
 
     public Player(String name, int experience, int skillLevel) {
         this.name = name;
-        this.experience = experience;
-        this.skillLevel = skillLevel;
     }
 
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", experience=" + experience +
-                ", faceitRanking=" + skillLevel +
                 '}';
     }
 
@@ -37,21 +50,5 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-    public void setSkillLevel(int skillLevel) {
-        this.skillLevel = skillLevel;
-    }
-
-    public int getSkillLevel() {
-        return skillLevel;
     }
 }

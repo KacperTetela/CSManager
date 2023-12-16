@@ -1,10 +1,10 @@
 package com.csmanager;
 
-public class MainGUI {
+public class Main {
     public static void main(String[] args) {
         PlayerCreator playerCreator = new PlayerCreator();
-        TeamCreator teamCreator = new TeamCreator(playerCreator);
-        MatchCreator matchCreator = new MatchCreator(teamCreator);
+        LineUpCreator lineUpCreator = new LineUpCreator(playerCreator);
+        MatchCreator matchCreator = new MatchCreator(lineUpCreator);
         matchCreator.createMatch();
     }
 }

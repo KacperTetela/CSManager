@@ -1,27 +1,34 @@
 package com.csmanager;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.csmanager.playermodel.Player;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class PlayerCreator {
-    private List<Player> players = new ArrayList<>();
+    private Queue<Player> allPlayers = new LinkedList<>();
+
     private String[] names = {"Niko", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko"};
 
     public PlayerCreator() {
         for (int i = 0; i < 10; i++) {
             Player player = new Player(names[i], i, i);
-            players.add(player);
+            allPlayers.add(player);
         }
     }
 
     protected void listPrinter() {
-        for (int i = 0; i < players.size(); i++) {
-            System.out.println(players.get(i));
+        for (Player player : allPlayers) {
+            System.out.println(player);
         }
     }
 
     protected Player getFreePlayer() {
-        Player player = null;
+        if (allPlayers.isEmpty()) {
+            throw new RuntimeException("free player not found");
+        }
+        return allPlayers.remove();
+       /* Player player = null;
         for (int i = 0; i < players.size(); i++) {
             Player currentPlayer = players.get(i);
             if (currentPlayer != null && !currentPlayer.getName().isEmpty()) {
@@ -30,25 +37,21 @@ public class PlayerCreator {
             }
         }
 
-        if (player == null) {
-            throw new RuntimeException("free player not found");
-        }
-        return player;
+
+        return player;*/
     }
 
 
     protected void deletePlayer(String name) {
-        for (int i = 0; i < players.size(); i++) {
-            if (players.get(i).getName().equals(name)) {
-                players.get(i).setName("");
-                players.get(i).setExperience(0);
-                players.get(i).setSkillLevel(0);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.peek().getName().equals(name)) {
+                allPlayers.remove(i);
             }
         }
     }
 
-    public List<Player> getPlayers() {
-        return players;
+    public Queue<Player> getAllPlayers() {
+        return allPlayers;
     }
 
 }

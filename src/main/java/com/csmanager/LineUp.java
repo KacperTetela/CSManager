@@ -1,14 +1,14 @@
 package com.csmanager;
 
+import com.csmanager.playermodel.Player;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team {
+public class LineUp {
     private List<Player> players = new ArrayList<>();
-    private PlayerCreator playerCreator;
-    private int teamScore;
 
-    public Team() {
+    public LineUp() {
     }
 
     // Metoda do dodawania pojedynczego gracza
@@ -26,7 +26,7 @@ public class Team {
 
     @Override
     public String toString() {
-        return "Team{" +
+        return "LineUp{" +
                 "players=" + players +
                 '}';
     }
@@ -37,14 +37,6 @@ public class Team {
             teamSkillLevel += players.get(i).getSkillLevel();
         }
         return teamSkillLevel;
-    }
-
-    public int getTeamScore() {
-        return teamScore;
-    }
-
-    public void setTeamScore(int teamScore) {
-        this.teamScore = teamScore;
     }
 
 }
