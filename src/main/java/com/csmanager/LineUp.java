@@ -31,12 +31,12 @@ public class LineUp {
                 '}';
     }
 
-    public int getTeamSkillLevel() {
+/*    public int getTeamSkillLevel() {
         int teamSkillLevel = 0;
         for (int i = 0; i < players.size(); i++) {
             teamSkillLevel += players.get(i).getSkillLevel();
         }
         return teamSkillLevel;
-    }
+    }*/
 
 }

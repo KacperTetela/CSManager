@@ -1,10 +1,16 @@
 package com.csmanager.playermodel;
 
+import com.csmanager.carrer.startingLineUp.CTSideRoles.CTSideRole;
+import com.csmanager.carrer.startingLineUp.TSideRoles.TSideRole;
+
 import java.util.Objects;
 
 public class Player {
+    //id gracza potrzebne do bazy danych
     private Long id;
+    //dane gracza
     private String name;
+    private int age;
     //doswiadczenie
     private int daysInTeams;
     private float consistency;
@@ -13,6 +19,9 @@ public class Player {
     private float potentialAsSniper;
     private float potentialAsLurker;
     private float potentialAsIGL;
+    //role w druzynie
+    private TSideRole tSideRole;
+    private CTSideRole ctSideRole;
     //zdolnosci riflerskie
     private float agressionAsRiflerAsRiflerPoints;
     private float defensivnessAsRiflerPoints;
