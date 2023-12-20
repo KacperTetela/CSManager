@@ -1,10 +1,12 @@
 package com.csmanager.carrer.startingLineUp;
 
+import com.csmanager.carrer.Team;
 import com.csmanager.carrer.startingLineUp.TSideRoles.TSideRole;
 import com.csmanager.carrer.startingLineUp.TSideRoles.TSideRoles;
 import com.csmanager.playermodel.Player;
 
 public class StartingLineUp {
+    private Team team;
     private Player player1;
     private Player player2;
     private Player player3;
@@ -12,12 +14,15 @@ public class StartingLineUp {
     private Player player5;
     TSideRoles tSideRoles = new TSideRoles(TSideRole.LURKER, TSideRole.LURKER, TSideRole.RIFLER, TSideRole.RIFLER, TSideRole.AWPER, TSideRole.LEADER);
 
-    public StartingLineUp(Player player1, Player player2, Player player3, Player player4, Player player5) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.player3 = player3;
-        this.player4 = player4;
-        this.player5 = player5;
+    public StartingLineUp(Team team) {
+        this.team = team;
+        //wypisac graczy i zapytac uzytkownika ktorych graczy chce miec w lineupie
+        this.player1 = team.getPlayers().get(0);
+        this.player2 = team.getPlayers().get(1);
+        this.player3 = team.getPlayers().get(2);
+        this.player4 = team.getPlayers().get(3);
+        this.player5 = team.getPlayers().get(4);
+
     }
 
     @Override

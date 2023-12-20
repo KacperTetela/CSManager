@@ -33,9 +33,16 @@ public class Team {
         this.money -= money;
     }
 
-    //setStartingLineUp
-    public void setStartingLineUp(Player player1, Player player2, Player player3, Player player4, Player player5) {
-        StartingLineUp startingLineUp = new StartingLineUp(player1, player2, player3, player4, player5);
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + name + '\'' +
+                ", players=" + players +
+                ", money=" + money +
+                '}';
+    }
 
+    public List<Player> getPlayers() {
+        return players;
     }
 }
