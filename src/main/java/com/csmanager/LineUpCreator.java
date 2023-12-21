@@ -9,7 +9,7 @@ public class LineUpCreator {
 
     public LineUpCreator(PlayerCreator playerCreator) {
         this.playerCreator = playerCreator;
-        playerCreator.getAllPlayers();
+        /*playerCreator.getAllPlayers();
 
         for (int i = 0 ; i < 2; i++) {
             LineUp lineUp = new LineUp();
@@ -19,7 +19,7 @@ public class LineUpCreator {
             }
         }
         System.out.println(lineUps.get(0).toString());
-        System.out.println(lineUps.get(1).toString());
+        System.out.println(lineUps.get(1).toString());*/
     }
 
     public List<LineUp> getTeams() {

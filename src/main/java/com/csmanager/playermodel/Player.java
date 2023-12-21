@@ -1,9 +1,7 @@
 package com.csmanager.playermodel;
 
-import com.csmanager.carrer.startingLineUp.CTSideRoles.CTSideRole;
-import com.csmanager.carrer.startingLineUp.TSideRoles.TSideRole;
-
-import java.util.Objects;
+import com.csmanager.carrer.startingLineUp.Role;
+import java.util.*;
 
 public class Player {
     //id gracza potrzebne do bazy danych
@@ -13,34 +11,31 @@ public class Player {
     private int age;
     //doswiadczenie
     private int daysInTeams;
-    private float consistency;
-    //potencjal wzgledem roli
-    private float potentialAsRifler;
-    private float potentialAsSniper;
-    private float potentialAsLurker;
-    private float potentialAsIGL;
-    //role w druzynie
-    private TSideRole tSideRole;
-    private CTSideRole ctSideRole;
-    //zdolnosci riflerskie
-    private float agressionAsRiflerAsRiflerPoints;
-    private float defensivnessAsRiflerPoints;
-    //zdolnosci przecinania rotacji
-    private float lurkingPoints;
-    //zdolnosci strzeleckie ze snajperki
-    private float snipingPoints;
+    private double consistency;
+    private Map<Role, Double> potential = new HashMap<>();
+    private Map<Role, Double> rolePoints = new HashMap<>();
 
-    //zdolnosci przywodcze
-    private float leadingAsIGL;
-
-    public Player(String name, int experience, int skillLevel) {
+    public Player(String name) {
         this.name = name;
+        Role.getPotentialRoles().forEach(role -> potential.put(role, Math.random()*0.5));
+        Arrays.stream(Role.values()).forEach(role -> rolePoints.put(role, Math.random()*0.25));
+        consistency = Math.random()*0.5;
+        daysInTeams = (int)(Math.random()*1000);
+        age = (int)(Math.random()*20 + 15);
+        //HomeWork - drugi parametr musi polegac na wartosci ustawionej w pierwszym, jesli pierwszy parametr duzy to, drugi maly
+        //Zeby suma mnoznika nie mogla przekroczyc okreslonej warotsci np. 1
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", daysInTeams=" + daysInTeams +
+                ", consistency=" + consistency +
+                ", potential=" + potential +
+                ", rolePoints=" + rolePoints +
                 '}';
     }
 

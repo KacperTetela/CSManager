@@ -3,7 +3,9 @@ package com.csmanager;
 import com.csmanager.playermodel.Player;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.stream.IntStream;
 
 public class PlayerCreator {
     private Queue<Player> allPlayers = new LinkedList<>();
@@ -12,46 +14,23 @@ public class PlayerCreator {
 
     public PlayerCreator() {
         for (int i = 0; i < 10; i++) {
-            Player player = new Player(names[i], i, i);
+            Player player = new Player(names[i]);
             allPlayers.add(player);
         }
     }
 
-    protected void listPrinter() {
-        for (Player player : allPlayers) {
-            System.out.println(player);
+    public List<Player> getPlayers(int numberOfPlayers) {
+        if (allPlayers.size() < numberOfPlayers) {
+            throw new IllegalArgumentException("Not enough players");
         }
+        List<Player> players = new LinkedList<>();
+        IntStream.range(0,numberOfPlayers)
+                .forEach(i -> players.add(allPlayers.poll()));
+
+        //to samo co wyzej
+        /*for (int i = 0; i < numberOfPlayers; i++) {
+            players.add(allPlayers.poll());
+        }*/
+        return players;
     }
-
-    protected Player getFreePlayer() {
-        if (allPlayers.isEmpty()) {
-            throw new RuntimeException("free player not found");
-        }
-        return allPlayers.remove();
-       /* Player player = null;
-        for (int i = 0; i < players.size(); i++) {
-            Player currentPlayer = players.get(i);
-            if (currentPlayer != null && !currentPlayer.getName().isEmpty()) {
-                player = currentPlayer;
-                return player;
-            }
-        }
-
-
-        return player;*/
-    }
-
-
-    protected void deletePlayer(String name) {
-        for (int i = 0; i < allPlayers.size(); i++) {
-            if (allPlayers.peek().getName().equals(name)) {
-                allPlayers.remove(i);
-            }
-        }
-    }
-
-    public Queue<Player> getAllPlayers() {
-        return allPlayers;
-    }
-
 }
