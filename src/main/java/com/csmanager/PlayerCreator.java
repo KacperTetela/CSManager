@@ -1,7 +1,5 @@
 package com.csmanager;
 
-import com.csmanager.playermodel.Player;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;

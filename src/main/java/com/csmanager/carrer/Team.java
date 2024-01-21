@@ -1,8 +1,9 @@
 package com.csmanager.carrer;
 
-import com.csmanager.playermodel.Player;
+import com.csmanager.Player;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Team {
     private String name;
@@ -38,6 +39,12 @@ public class Team {
                 ", players=" + players +
                 ", money=" + money +
                 '}';
+    }
+
+    public Optional<Player> findPlayerByName(String name) {
+        return players.stream()
+                .filter(player -> player.getName().equals(name))
+                .findFirst();
     }
 
     public List<Player> getPlayers() {
