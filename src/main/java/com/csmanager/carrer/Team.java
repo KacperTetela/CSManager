@@ -1,6 +1,7 @@
 package com.csmanager.carrer;
 
 import com.csmanager.Player;
+import com.csmanager.Utils;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,11 +35,10 @@ public class Team {
 
     @Override
     public String toString() {
-        return "Team{" +
-                "name='" + name + '\'' +
-                ", players=" + players +
-                ", money=" + money +
-                '}';
+        return "Team: " + name +
+                "\nmoney=" + money +
+                "\nPlayers:"+
+                Utils.createListDisplay(players);
     }
 
     public Optional<Player> findPlayerByName(String name) {

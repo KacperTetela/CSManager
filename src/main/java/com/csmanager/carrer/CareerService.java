@@ -35,6 +35,7 @@ public class CareerService {
         LineUp lineUp = new LineUp();
         try {
             myTeam.getPlayers().forEach(System.out::println);
+            System.out.println();
             for (int i = 0; i < 5; i++) {
                 System.out.println("Write name of players which you want to add to your lineup");
                 Scanner scanner = new Scanner(System.in);

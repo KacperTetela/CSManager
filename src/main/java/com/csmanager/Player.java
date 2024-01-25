@@ -30,14 +30,9 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", daysInTeams=" + daysInTeams +
-                ", consistency=" + consistency +
-                ", potential=" + potentialPoints +
-                ", rolePoints=" + rolePoints +
-                '}';
+        return  "\n"+name  +
+                "\nrolePoints=" + Utils.createMapDisplay(rolePoints) +
+                "\npotentialPoints=" + Utils.createMapDisplay(potentialPoints);
     }
 
     @Override
