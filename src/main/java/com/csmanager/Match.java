@@ -1,20 +1,32 @@
 package com.csmanager;
 
+import com.csmanager.carrer.Team;
 import com.csmanager.carrer.startingLineUp.LineUp;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Match {
     private LineUp lineUp1;
     private LineUp lineUp2;
-    private int team1Score;
-    private int team2Score;
+    private int yourTeamLineUpScore;
+    private int opponentScore;
 
-    public Match(LineUp lineUp1, LineUp lineUp2) {
-        this.lineUp1 = lineUp1;
-        this.lineUp2 = lineUp2;
-        team1Score = 0;
-        team2Score = 0;
+    public Match(Team myTeam, LineUp yourTeamLineUp, LineUp opponent) {
+        this.lineUp1 = yourTeamLineUp;
+        this.lineUp2 = opponent;
+        yourTeamLineUpScore = 0;
+        opponentScore = 0;
         simulateMatch(this);
         displayMatchResult(this);
+
+        //gracze po meczu musza wrocic do Teamu ktorym sterujemy. Musimy rozmontowac LineUp w celu odgarniecia graczy
+        List<Player> playersToReturn = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            playersToReturn.add(yourTeamLineUp.getPlayers().get(i).getPlayer());
+        }
+        for (int i = 0; i < playersToReturn.size(); i++)
+            myTeam.addPlayer(playersToReturn.get(i));
     }
 
     public LineUp getTeam1() {
@@ -26,19 +38,19 @@ public class Match {
     }
 
     public int getTeam1Score() {
-        return team1Score;
+        return yourTeamLineUpScore;
     }
 
     public int getTeam2Score() {
-        return team2Score;
+        return opponentScore;
     }
 
     public void setTeam1Score(int team1Score) {
-        this.team1Score = team1Score;
+        this.yourTeamLineUpScore = team1Score;
     }
 
     public void setTeam2Score(int team2Score) {
-        this.team2Score = team2Score;
+        this.opponentScore = team2Score;
     }
 
     private void simulateMatch(Match match) {

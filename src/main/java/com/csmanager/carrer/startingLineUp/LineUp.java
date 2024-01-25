@@ -35,4 +35,8 @@ public class LineUp {
         }
         return teamSkillLevel;
     }
+
+    public List<LineUpPlayer> getPlayers() {
+        return players;
+    }
 }

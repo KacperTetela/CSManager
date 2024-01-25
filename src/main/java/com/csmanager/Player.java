@@ -1,6 +1,7 @@
 package com.csmanager;
 
 import com.csmanager.carrer.startingLineUp.Role;
+
 import java.util.*;
 
 public class Player {
@@ -14,20 +15,16 @@ public class Player {
     public Player(String name) {
         this.name = name;
         double potentialVSRolesPoints = 0.5;
-        double potentialVal = 0.5+Math.random()*potentialVSRolesPoints;
+        double potentialVal = 0.5 + Math.random() * potentialVSRolesPoints;
         Role.getPotentialRoles().forEach(role -> potentialPoints.put(role, potentialVal));
 
-        potentialVSRolesPoints =- potentialVal;
-        double roleVal = 0.5+Math.random()*potentialVSRolesPoints;
+        potentialVSRolesPoints = -potentialVal;
+        double roleVal = 0.5 + Math.random() * potentialVSRolesPoints;
         Arrays.stream(Role.values()).forEach(role -> rolePoints.put(role, potentialVal));
 
-        consistency = 0.5+Math.random()*0.5;
-        daysInTeams = (int)(Math.random()*1000);
-        age = (int)(Math.random()*20 + 15);
-        //HomeWork - drugi parametr musi polegac na wartosci ustawionej w pierwszym, jesli pierwszy parametr duzy to, drugi maly
-        //Zeby suma mnoznika nie mogla przekroczyc okreslonej warotsci np. 1
-        //Zrobic tak, zeby suma mnoznikow byla rowna 1
-        //Zrobic tak, zeby suma mnoznikow byla rowna 1, ale nie przekraczala wartosci 1
+        consistency = 0.5 + Math.random() * 0.5;
+        daysInTeams = (int) (Math.random() * 1000);
+        age = (int) (Math.random() * 20 + 15);
     }
 
     @Override

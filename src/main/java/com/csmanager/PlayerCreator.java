@@ -22,13 +22,8 @@ public class PlayerCreator {
             throw new IllegalArgumentException("Not enough players");
         }
         List<Player> players = new LinkedList<>();
-        IntStream.range(0,numberOfPlayers)
+        IntStream.range(0, numberOfPlayers)
                 .forEach(i -> players.add(allPlayers.poll()));
-
-        //to samo co wyzej
-        /*for (int i = 0; i < numberOfPlayers; i++) {
-            players.add(allPlayers.poll());
-        }*/
         return players;
     }
 }

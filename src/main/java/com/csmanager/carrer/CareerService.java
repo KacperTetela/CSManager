@@ -22,11 +22,10 @@ public class CareerService {
 
             LineUp lineUp1 = manuallyCreateLineUp(myTeam);
             LineUp lineUp2 = autoCreateLineUp();
-            LineUp lineUp3 = autoCreateLineUp();
 
             System.out.println("\nYour lineup is: \n" + lineUp2);
-            System.out.println("\nYour lineup is: \n" + lineUp3);
-            Match match = new Match(lineUp3, lineUp2);
+            Match match = new Match(myTeam, lineUp1, lineUp2);
+            System.out.println(myTeam.getPlayers().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,8 +35,6 @@ public class CareerService {
         LineUp lineUp = new LineUp();
         try {
             myTeam.getPlayers().forEach(System.out::println);
-            List<Player> playersTaken = new ArrayList<>();
-
             for (int i = 0; i < 5; i++) {
                 System.out.println("Write name of players which you want to add to your lineup");
                 Scanner scanner = new Scanner(System.in);
@@ -49,7 +46,6 @@ public class CareerService {
                     i--;
                     continue;
                 }
-
 
                 System.out.println("Select roles T for " + name + "\n rifler=0 lurker=1 awp=2");
                 int tRoleVal = scanner.nextInt();

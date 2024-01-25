@@ -26,4 +26,8 @@ public class LineUpPlayer {
                 ", tRole=" + tRole +
                 '}';
     }
+
+    public Player getPlayer() {
+        return player;
+    }
 }
