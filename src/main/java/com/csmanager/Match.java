@@ -27,6 +27,10 @@ public class Match {
         }
         for (int i = 0; i < playersToReturn.size(); i++)
             myTeam.addPlayer(playersToReturn.get(i));
+
+        if (yourTeamLineUpScore > opponentScore)
+            myTeam.addMoney(100);
+        yourTeamLineUp.trainPlayers();
     }
 
     public LineUp getTeam1() {

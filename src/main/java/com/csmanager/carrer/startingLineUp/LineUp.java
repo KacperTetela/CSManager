@@ -39,4 +39,9 @@ public class LineUp {
     public List<LineUpPlayer> getPlayers() {
         return players;
     }
+
+    public void trainPlayers() {
+        players.forEach(lineUpPlayer -> lineUpPlayer.trainPlayer());
+    }
+
 }

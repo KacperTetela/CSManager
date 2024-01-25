@@ -1,6 +1,7 @@
 package com.csmanager;
 
 import com.csmanager.carrer.startingLineUp.Role;
+import com.csmanager.carrer.startingLineUp.Side;
 
 import java.util.*;
 
@@ -65,5 +66,12 @@ public class Player {
             skillLevel += potentialPoints.get(role) * rolePoints.get(role);
         }
         return skillLevel;
+    }
+
+    public void addPoints(Role role) {
+        if (!role.getSide().equals(Side.CT)) {
+            double val = rolePoints.get(role) + potentialPoints.get(role) * 0.1;
+            rolePoints.put(role, val);
+        }
     }
 }

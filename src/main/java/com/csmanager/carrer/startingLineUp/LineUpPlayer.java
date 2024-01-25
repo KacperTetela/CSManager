@@ -30,4 +30,9 @@ public class LineUpPlayer {
     public Player getPlayer() {
         return player;
     }
+
+    public void trainPlayer() {
+        player.addPoints(tRole);
+        player.addPoints(ctRole);
+    }
 }
