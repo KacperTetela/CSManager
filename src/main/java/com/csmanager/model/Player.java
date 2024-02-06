@@ -1,7 +1,8 @@
-package com.csmanager;
+package com.csmanager.model;
 
-import com.csmanager.carrer.startingLineUp.Role;
-import com.csmanager.carrer.startingLineUp.Side;
+import com.csmanager.model.startingLineUp.Role;
+import com.csmanager.model.startingLineUp.Side;
+import com.csmanager.utils.Utils;
 
 import java.util.*;
 
@@ -13,16 +14,12 @@ public class Player {
     private Map<Role, Double> potentialPoints = new HashMap<>();
     private Map<Role, Double> rolePoints = new HashMap<>();
 
-    public Player(String name) {
+    public Player(String name, PotentialScope potentialScope) {
         this.name = name;
-        double potentialVSRolesPoints = 0.5;
-        double potentialVal = 0.5 + Math.random() * potentialVSRolesPoints;
-        Role.getPotentialRoles().forEach(role -> potentialPoints.put(role, potentialVal));
-
-        potentialVSRolesPoints = -potentialVal;
-        double roleVal = 0.5 + Math.random() * potentialVSRolesPoints;
-        Arrays.stream(Role.values()).forEach(role -> rolePoints.put(role, potentialVal));
-
+        Role.getPotentialRoles().forEach(role -> {
+            potentialPoints.put(role, potentialScope.rollPotential());
+            rolePoints.put(role, potentialScope.rollValue());
+        });
         consistency = 0.5 + Math.random() * 0.5;
         daysInTeams = (int) (Math.random() * 1000);
         age = (int) (Math.random() * 20 + 15);
@@ -57,8 +54,10 @@ public class Player {
         for (Role role : Role.values()) {
             if (potentialPoints.get(role) == null) {
                 continue;
+            } else {
+                chance(potentialPoints.get(role));
             }
-            skillLevel += potentialPoints.get(role) * rolePoints.get(role);
+            skillLevel += rolePoints.get(role);
         }
         return skillLevel;
     }
@@ -69,4 +68,21 @@ public class Player {
             rolePoints.put(role, val);
         }
     }
+
+    private void chance(double potential) {
+
+        double isItTime = Math.random();
+        // 0.0000001 - 0.99999999 = 0.88
+        // 3 nooby, 2 koxy i 1 pro
+
+        // 0.2 - 0.25 // pro
+        // 0.1 - 0.2 // kox
+        // 0.05 - 0.1 // noob
+
+
+        if (potential > 0.7){
+
+        }
+    }
+
 }

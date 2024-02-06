@@ -1,7 +1,6 @@
-package com.csmanager.carrer.startingLineUp;
+package com.csmanager.model.startingLineUp;
 
-import com.csmanager.carrer.startingLineUp.Role;
-import com.csmanager.Player;
+import com.csmanager.model.Player;
 
 public class LineUpPlayer {
     private Player player;

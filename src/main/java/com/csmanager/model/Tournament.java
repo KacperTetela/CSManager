@@ -1,4 +1,4 @@
-package com.csmanager.carrer;
+package com.csmanager.model;
 
 public class Tournament {
     private String name;

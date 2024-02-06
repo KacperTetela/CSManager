@@ -1,4 +1,4 @@
-package com.csmanager.carrer;
+package com.csmanager.model;
 
 public class Shop {
     private String nameOfProduct;

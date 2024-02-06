@@ -1,6 +1,7 @@
-package com.csmanager;
+package com.csmanager.utils;
 
-import com.csmanager.carrer.startingLineUp.Role;
+import com.csmanager.model.Player;
+import com.csmanager.model.startingLineUp.Role;
 
 import java.util.List;
 import java.util.Map;

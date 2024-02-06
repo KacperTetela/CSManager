@@ -1,7 +1,6 @@
-package com.csmanager.carrer;
+package com.csmanager.model;
 
-import com.csmanager.Player;
-import com.csmanager.Utils;
+import com.csmanager.utils.Utils;
 
 import java.util.List;
 import java.util.Optional;

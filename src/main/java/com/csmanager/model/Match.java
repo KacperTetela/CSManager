@@ -1,7 +1,6 @@
-package com.csmanager;
+package com.csmanager.model;
 
-import com.csmanager.carrer.Team;
-import com.csmanager.carrer.startingLineUp.LineUp;
+import com.csmanager.model.startingLineUp.LineUp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,10 +57,12 @@ public class Match {
     }
 
     private void simulateMatch(Match match) {
-        if (match.getTeam1().getLineUpSkillLevel() > match.getTeam2().getLineUpSkillLevel()) {
+        int valLineUp1 = match.getTeam1().getLineUpSkillLevel();
+        int valLineUp2 = match.getTeam2().getLineUpSkillLevel();
+        if (valLineUp1 > valLineUp2) {
             match.setTeam1Score(16);
             match.setTeam2Score(0);
-        } else if (match.getTeam1().getLineUpSkillLevel() < match.getTeam2().getLineUpSkillLevel()) {
+        } else if (valLineUp1 < valLineUp2) {
             match.setTeam1Score(0);
             match.setTeam2Score(16);
         } else {

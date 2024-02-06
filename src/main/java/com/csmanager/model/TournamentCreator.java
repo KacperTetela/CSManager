@@ -1,4 +1,4 @@
-package com.csmanager.carrer;
+package com.csmanager.model;
 
 import java.util.Arrays;
 import java.util.HashMap;

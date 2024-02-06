@@ -1,11 +1,9 @@
-package com.csmanager.carrer;
+package com.csmanager.controller.career;
 
-import com.csmanager.Match;
-import com.csmanager.Player;
-import com.csmanager.PlayerCreator;
-import com.csmanager.carrer.startingLineUp.LineUp;
-import com.csmanager.carrer.startingLineUp.LineUpPlayer;
-import com.csmanager.carrer.startingLineUp.Role;
+import com.csmanager.model.startingLineUp.LineUp;
+import com.csmanager.model.*;
+import com.csmanager.model.startingLineUp.LineUpPlayer;
+import com.csmanager.model.startingLineUp.Role;
 import com.github.javafaker.Faker;
 
 import java.util.*;
@@ -16,6 +14,7 @@ public class CareerService {
             PlayerCreator playerCreator = new PlayerCreator();
             Team myTeam = new Team("MyTeam", playerCreator.getPlayers(6));
             System.out.println(myTeam);
+            System.out.println("-----");
             ShopCreator shopCreator = new ShopCreator();
             TournamentCreator tournamentCreator = new TournamentCreator();
 
@@ -37,7 +36,7 @@ public class CareerService {
             myTeam.getPlayers().forEach(System.out::println);
             System.out.println();
             for (int i = 0; i < 5; i++) {
-                System.out.println("Write name of players which you want to add to your lineup");
+                System.out.println("Write name of players which you want to add to your lineup\n");
                 Scanner scanner = new Scanner(System.in);
                 String name = scanner.nextLine();
 
@@ -86,7 +85,7 @@ public class CareerService {
         Role[] rolesCT = {Role.ANCHOR, Role.ANCHOR, Role.ROTATOR, Role.ROTATOR, Role.AWPER};
         Role[] rolesT = {Role.LURKER, Role.LURKER, Role.RIFLER, Role.RIFLER, Role.AWPER};
         for (int i = 0; i < 5; i++) {
-            lineUp.addPlayer(new LineUpPlayer(new Player(faker.name().name()), rolesCT[i], rolesT[i]));
+            lineUp.addPlayer(new LineUpPlayer(new Player(faker.name().name(), PotentialScope.NOOB), rolesCT[i], rolesT[i]));
         }
         return lineUp;
     }

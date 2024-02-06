@@ -1,4 +1,4 @@
-package com.csmanager.carrer.startingLineUp;
+package com.csmanager.model.startingLineUp;
 
 import java.util.Arrays;
 import java.util.List;
