@@ -1,8 +1,6 @@
 package com.csmanager.model;
 
-import java.util.List;
-
-public enum PotentialScope {
+public enum PlayerStatsScope {
     PRO(0.2,0.25),
     KOX(0.1,0.2),
     NOOB(0.05,0.1);
@@ -10,7 +8,7 @@ public enum PotentialScope {
     private double minRange;
     private double maxRange;
 
-    PotentialScope(double minRange, double maxRange) {
+    PlayerStatsScope(double minRange, double maxRange) {
         this.minRange = minRange;
         this.maxRange = maxRange;
     }
@@ -18,9 +16,9 @@ public enum PotentialScope {
     public double rollPotential() {
 
         double potentialVal;
-        if (this == PotentialScope.PRO) {
+        if (this == PlayerStatsScope.PRO) {
             potentialVal = 0.2 + Math.random()/20;
-        } else if (this == PotentialScope.KOX) {
+        } else if (this == PlayerStatsScope.KOX) {
             potentialVal = 0.1 + Math.random()/10;
         } else {
             potentialVal = 0.05 + Math.random()/20;

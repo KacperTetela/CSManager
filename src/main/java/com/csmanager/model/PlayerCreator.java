@@ -12,15 +12,15 @@ public class PlayerCreator {
 
     public PlayerCreator() {
         for (int i = 0; i < 6; i++) {
-            PotentialScope potentialScope;
+            PlayerStatsScope playerStatsScope;
             if (i < 3) {
-                potentialScope = PotentialScope.NOOB;
+                playerStatsScope = PlayerStatsScope.NOOB;
             } else if (i < 5) {
-                potentialScope = PotentialScope.KOX;
+                playerStatsScope = PlayerStatsScope.KOX;
             } else {
-                potentialScope = PotentialScope.PRO;
+                playerStatsScope = PlayerStatsScope.PRO;
             }
-            Player player = new Player(names[i], potentialScope);
+            Player player = new Player(names[i], playerStatsScope);
             allPlayers.add(player);
         }
     }

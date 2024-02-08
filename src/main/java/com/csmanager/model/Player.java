@@ -14,11 +14,11 @@ public class Player {
     private Map<Role, Double> potentialPoints = new HashMap<>();
     private Map<Role, Double> rolePoints = new HashMap<>();
 
-    public Player(String name, PotentialScope potentialScope) {
+    public Player(String name, PlayerStatsScope playerStatsScope) {
         this.name = name;
         Role.getPotentialRoles().forEach(role -> {
-            potentialPoints.put(role, potentialScope.rollPotential());
-            rolePoints.put(role, potentialScope.rollValue());
+            potentialPoints.put(role, playerStatsScope.rollPotential());
+            rolePoints.put(role, playerStatsScope.rollValue());
         });
         consistency = 0.5 + Math.random() * 0.5;
         daysInTeams = (int) (Math.random() * 1000);
@@ -49,13 +49,17 @@ public class Player {
         return name;
     }
 
+    /**
+     * The method returns the real skill index of a given player, which is the sum of all his statistics.
+     * Each role with potential is checked in the context of a "chance" or a good day for the player
+     */
     public double getSkillLevel() {
         double skillLevel = 0;
         for (Role role : Role.values()) {
             if (potentialPoints.get(role) == null) {
                 continue;
             } else {
-                chance(potentialPoints.get(role));
+                chance(potentialPoints.get(role), role);
             }
             skillLevel += rolePoints.get(role);
         }
@@ -69,19 +73,25 @@ public class Player {
         }
     }
 
-    private void chance(double potential) {
-
+    /**
+     * The method is intended to provide the opportunity to significantly improve skill points for one match if the
+     * player finds himself in the pool.
+     * The method takes into account that the lower the potential coefficient, the lower the chance for a given player
+     * to have an opportunity.
+     *
+     *         // 3 nooby, 2 koxy i 1 pro
+     *
+     *         // 0.2 - 0.25 // pro
+     *         // 0.1 - 0.2 // kox
+     *         // 0.05 - 0.1 // noob
+     */
+    private void chance(double potential, Role role) {
         double isItTime = Math.random();
-        // 0.0000001 - 0.99999999 = 0.88
-        // 3 nooby, 2 koxy i 1 pro
-
-        // 0.2 - 0.25 // pro
-        // 0.1 - 0.2 // kox
-        // 0.05 - 0.1 // noob
-
-
-        if (potential > 0.7){
-
+        if (isItTime <= potentialPoints.get(role)) {
+            if (rolePoints.get(role) < 0.75)
+                rolePoints.put(role, (rolePoints.get(role) + 0.25) );
+            else
+                rolePoints.put(role, 1.0);
         }
     }
 

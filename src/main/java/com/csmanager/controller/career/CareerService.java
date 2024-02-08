@@ -85,7 +85,7 @@ public class CareerService {
         Role[] rolesCT = {Role.ANCHOR, Role.ANCHOR, Role.ROTATOR, Role.ROTATOR, Role.AWPER};
         Role[] rolesT = {Role.LURKER, Role.LURKER, Role.RIFLER, Role.RIFLER, Role.AWPER};
         for (int i = 0; i < 5; i++) {
-            lineUp.addPlayer(new LineUpPlayer(new Player(faker.name().name(), PotentialScope.NOOB), rolesCT[i], rolesT[i]));
+            lineUp.addPlayer(new LineUpPlayer(new Player(faker.name().name(), PlayerStatsScope.NOOB), rolesCT[i], rolesT[i]));
         }
         return lineUp;
     }
