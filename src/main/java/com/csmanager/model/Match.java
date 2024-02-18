@@ -1,6 +1,6 @@
 package com.csmanager.model;
 
-import com.csmanager.model.startingLineUp.LineUp;
+import com.csmanager.model.lineUp.LineUp;
 
 import java.util.ArrayList;
 import java.util.List;

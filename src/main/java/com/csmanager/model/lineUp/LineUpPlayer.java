@@ -1,4 +1,4 @@
-package com.csmanager.model.startingLineUp;
+package com.csmanager.model.lineUp;
 
 import com.csmanager.model.Player;
 

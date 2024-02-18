@@ -1,4 +1,4 @@
-package com.csmanager.model.startingLineUp;
+package com.csmanager.model.lineUp;
 
 import java.util.ArrayList;
 import java.util.List;

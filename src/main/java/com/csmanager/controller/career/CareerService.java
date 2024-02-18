@@ -1,26 +1,32 @@
 package com.csmanager.controller.career;
 
-import com.csmanager.model.startingLineUp.LineUp;
+import com.csmanager.model.lineUp.*;
 import com.csmanager.model.*;
-import com.csmanager.model.startingLineUp.LineUpPlayer;
-import com.csmanager.model.startingLineUp.Role;
+import com.csmanager.utils.Utils;
 import com.github.javafaker.Faker;
 
 import java.util.*;
 
 public class CareerService {
+    /**
+     * Klasa ma zazadanie stworzyc pare metod które kolejno.
+     * Uruchomia wejscie do gry - wybiora Nazwe druzyny(), stworza losowych graczy().
+     * Wyswietla interfejs gry czyli ilosc pieniedzy, graczy i zapytaja co robic dalej czy kupowacGraczy() lub bootcampy.
+     * Lub zagrac turniej czyli ciag paru meczy.
+     * W kazdym meczu mamy byc poproszeni o wybranie graczy do LineUp oraz nadanie im roli
+     */
     public void start() {
         try {
             PlayerCreator playerCreator = new PlayerCreator();
-            Team myTeam = new Team("MyTeam", playerCreator.getPlayers(6));
+            Team myTeam = new Team(Utils.askAboutString("Please name your team"), playerCreator.getPlayers(6));
             System.out.println(myTeam);
-            System.out.println("-----");
-            ShopCreator shopCreator = new ShopCreator();
-            TournamentCreator tournamentCreator = new TournamentCreator();
 
+            ManuallyCreateLineUp manuallyCreateLineUp = new ManuallyCreateLineUp(myTeam);
+            LineUp lineUp1 = manuallyCreateLineUp.getLineUp();
+            //LineUp lineUp1 = manuallyCreateLineUp(myTeam);
 
-            LineUp lineUp1 = manuallyCreateLineUp(myTeam);
-            LineUp lineUp2 = autoCreateLineUp();
+            AutoLineUpCreator autoLineUpCreator = new AutoLineUpCreator();
+            LineUp lineUp2 = autoLineUpCreator.getLineUp();
 
             System.out.println("\nYour lineup is: \n" + lineUp2);
             Match match = new Match(myTeam, lineUp1, lineUp2);
@@ -30,10 +36,14 @@ public class CareerService {
         }
     }
 
+    /**
+     * Tworzenie LineUp powinno byc inicjowanie w klasie LineUp
+     * Moga powstac z tego dwie klasy
+     */
     private LineUp manuallyCreateLineUp(Team myTeam) {
         LineUp lineUp = new LineUp();
         try {
-            myTeam.getPlayers().forEach(System.out::println);
+            //myTeam.getPlayers().forEach(System.out::println);
             System.out.println();
             for (int i = 0; i < 5; i++) {
                 System.out.println("Write name of players which you want to add to your lineup\n");
@@ -75,17 +85,6 @@ public class CareerService {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        return lineUp;
-    }
-
-    private LineUp autoCreateLineUp() {
-        Faker faker = new Faker();
-        LineUp lineUp = new LineUp();
-        Role[] rolesCT = {Role.ANCHOR, Role.ANCHOR, Role.ROTATOR, Role.ROTATOR, Role.AWPER};
-        Role[] rolesT = {Role.LURKER, Role.LURKER, Role.RIFLER, Role.RIFLER, Role.AWPER};
-        for (int i = 0; i < 5; i++) {
-            lineUp.addPlayer(new LineUpPlayer(new Player(faker.name().name(), PlayerStatsScope.NOOB), rolesCT[i], rolesT[i]));
         }
         return lineUp;
     }

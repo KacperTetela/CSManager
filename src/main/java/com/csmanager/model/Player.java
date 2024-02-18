@@ -1,7 +1,7 @@
 package com.csmanager.model;
 
-import com.csmanager.model.startingLineUp.Role;
-import com.csmanager.model.startingLineUp.Side;
+import com.csmanager.model.lineUp.Role;
+import com.csmanager.model.lineUp.Side;
 import com.csmanager.utils.Utils;
 
 import java.util.*;
