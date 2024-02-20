@@ -34,9 +34,9 @@ public class Team {
 
     @Override
     public String toString() {
-        return "Team: " + name +
+        return "\nTeam: " + name +
                 "\nmoney=" + money +
-                "\nPlayers:"+
+                "\nPlayers:\n"+
                 Utils.createListDisplay(players);
     }
 

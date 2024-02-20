@@ -10,26 +10,26 @@ public class CareerService {
 
     public CareerService() {
         this.myTeam = startCareer();
-        buildLineUp();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             playMatch();
         }
     }
-
     /**
      * Wyswietla interfejs gry czyli ilosc pieniedzy, graczy i zapytaja co robic dalej czy kupowacGraczy() lub bootcampy.
      * Lub zagrac turniej czyli ciag paru meczy.
      * W kazdym meczu mamy byc poproszeni o wybranie graczy do LineUp oraz nadanie im roli
+     *
+     * Zmienic tak zeby bez wzgledu czy wpiszemy BYALI czy byali z malej bylo traktowane jako to samo
      */
     public Team startCareer() {
         PlayerCreator playerCreator = new PlayerCreator();
         Team myTeam = new Team(Utils.askAboutString("Please name your team"), playerCreator.getPlayers(6));
-        System.out.println(myTeam);
         return myTeam;
     }
 
     private void buildLineUp() {
         try {
+            System.out.println(myTeam);
             ManuallyCreateLineUp manuallyCreateLineUp = new ManuallyCreateLineUp(myTeam);
             this.currentPlayerLineUp = manuallyCreateLineUp.getLineUp();
         } catch (Exception e) {
@@ -37,11 +37,13 @@ public class CareerService {
         }
     }
 
+    /**
+     * buduje LineUp oraz currentPLayerLineUp za pomoca metody buildLineUP
+     */
     private void playMatch() {
         AutoLineUpCreator autoLineUpCreator = new AutoLineUpCreator();
         LineUp lineUp2 = autoLineUpCreator.getLineUp();
-
+        buildLineUp();
         Match match = new Match(myTeam, currentPlayerLineUp, lineUp2);
-        System.out.println(myTeam.getPlayers().toString());
     }
 }

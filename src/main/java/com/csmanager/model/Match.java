@@ -72,13 +72,13 @@ public class Match {
     }
 
     private void displayMatchResult(Match match) {
-        System.out.println("LineUp 1: " + match.getTeam1Score() + " LineUp 2: " + match.getTeam2Score());
+        System.out.println("\nLineUp 1: " + match.getTeam1Score() + " LineUp 2: " + match.getTeam2Score());
         if (match.getTeam1Score() > match.getTeam2Score()) {
-            System.out.println("LineUp 1 wins!");
+            System.out.println("You win\n");
         } else if (match.getTeam1Score() < match.getTeam2Score()) {
-            System.out.println("LineUp 2 wins!");
+            System.out.println("You lose\n");
         } else {
-            System.out.println("Draw!");
+            System.out.println("Draw!\n");
         }
     }
 
