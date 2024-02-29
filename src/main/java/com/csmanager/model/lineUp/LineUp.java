@@ -44,4 +44,9 @@ public class LineUp {
         players.forEach(lineUpPlayer -> lineUpPlayer.trainPlayer());
     }
 
+    public void closeLineup() {
+        for (LineUpPlayer player : players) {
+            player.getPlayer().setBusy(false);
+        }
+    }
 }

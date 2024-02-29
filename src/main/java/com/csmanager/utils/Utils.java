@@ -35,6 +35,20 @@ public class Utils {
         return scanner.nextLine();
     }
 
+    public static boolean askAboutboolean(String question) {
+        System.out.println(question + ":\n");
+        System.out.println("Answer YES or NO");
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        if (s.equalsIgnoreCase("YES")) {
+            return true;
+        } else if (s.equalsIgnoreCase("NO")) {
+            return false;
+        } else {
+            return askAboutboolean(question);
+        }
+    }
+
     public static int askAboutInt(String question) {
         System.out.println(question + ":\n");
         Scanner scanner = new Scanner(System.in);

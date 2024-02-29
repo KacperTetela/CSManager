@@ -13,6 +13,7 @@ public class Player {
     private double consistency;
     private Map<Role, Double> potentialPoints = new HashMap<>();
     private Map<Role, Double> rolePoints = new HashMap<>();
+    private boolean busy;
 
     public Player(String name, PlayerStatsScope playerStatsScope) {
         this.name = name;
@@ -95,4 +96,11 @@ public class Player {
         }
     }
 
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public boolean isBusy() {
+        return busy;
+    }
 }

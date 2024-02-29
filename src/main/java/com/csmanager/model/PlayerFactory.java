@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Queue;
 import java.util.stream.IntStream;
 
-public class PlayerCreator {
+public class PlayerFactory {
     private Queue<Player> allPlayers = new LinkedList<>();
 
     private String[] names = {"Niko", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko"};
 
-    public PlayerCreator() {
+    public PlayerFactory() {
         for (int i = 0; i < 6; i++) {
             PlayerStatsScope playerStatsScope;
             if (i < 3) {

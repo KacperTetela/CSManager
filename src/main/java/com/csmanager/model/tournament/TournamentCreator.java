@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.tournament;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,8 +18,8 @@ public class TournamentCreator {
 
     public TournamentCreator() {
         Arrays.stream(names).allMatch(name -> {
-            Tournament tournament = new Tournament(name, 100);
-            tournaments.put(tournaments.size(), tournament);
+            //Tournament tournament = new Tournament(name, 100);
+            //tournaments.put(tournaments.size(), tournament);
             return true;
         });
     }

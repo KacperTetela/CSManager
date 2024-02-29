@@ -20,10 +20,6 @@ public class Team {
         players.add(player);
     }
 
-    public void removePlayer(Player player) {
-        players.remove(player);
-    }
-
     public void addMoney(int money) {
         this.money += money;
     }
@@ -40,9 +36,9 @@ public class Team {
                 Utils.createListDisplay(players);
     }
 
-    public Optional<Player> findPlayerByName(String name) {
+    public Optional<Player> findPlayerNotBusyByName(String name) {
         return players.stream()
-                .filter(player -> player.getName().equals(name))
+                .filter(player -> player.getName().equalsIgnoreCase(name) && !player.isBusy())
                 .findFirst();
     }
 
