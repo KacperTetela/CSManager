@@ -1,6 +1,6 @@
 package com.csmanager.model.lineUp;
 
-import com.csmanager.model.Player;
+import com.csmanager.model.player.Player;
 
 public class LineUpPlayer {
     private Player player;
@@ -14,7 +14,21 @@ public class LineUpPlayer {
     }
 
     public double getSkillLevel() {
-        return player.getSkillLevel();
+        double skillLevel = 0;
+        Role[] rolesForEachPlayer = {tRole, ctRole};
+        for (Role role : rolesForEachPlayer) {
+            if (Chance.isRequired(role, player)) {
+                skillLevel += Chance.calculate(role, player);
+            }
+            //todo tu pojawia sie Null
+            //skillLevel += player.getRolePoints().get(role);
+        }
+        return skillLevel;
+    }
+
+    public void trainPlayer() {
+        player.addPoints(tRole);
+        player.addPoints(ctRole);
     }
 
     @Override
@@ -28,10 +42,5 @@ public class LineUpPlayer {
 
     public Player getPlayer() {
         return player;
-    }
-
-    public void trainPlayer() {
-        player.addPoints(tRole);
-        player.addPoints(ctRole);
     }
 }

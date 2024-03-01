@@ -1,7 +1,5 @@
 package com.csmanager.model.tournament;
 
-import com.csmanager.model.MatchFormat;
-
 public class Tournament {
     private String name;
     private int prizepool;

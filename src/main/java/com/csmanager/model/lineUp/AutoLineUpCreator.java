@@ -1,7 +1,7 @@
 package com.csmanager.model.lineUp;
 
-import com.csmanager.model.Player;
-import com.csmanager.model.PlayerStatsScope;
+import com.csmanager.model.player.Player;
+import com.csmanager.model.player.PlayerStatsScope;
 import com.github.javafaker.Faker;
 
 public class AutoLineUpCreator {

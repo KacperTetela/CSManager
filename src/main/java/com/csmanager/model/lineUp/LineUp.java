@@ -28,8 +28,8 @@ public class LineUp {
                 '}';
     }
 
-    public int getLineUpSkillLevel() {
-        int teamSkillLevel = 0;
+    public double getLineUpSkillLevel() {
+        double teamSkillLevel = 0;
         for (int i = 0; i < players.size(); i++) {
             teamSkillLevel += players.get(i).getSkillLevel();
         }

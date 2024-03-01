@@ -1,5 +1,6 @@
 package com.csmanager.model;
 
+import com.csmanager.model.player.Player;
 import com.csmanager.utils.Utils;
 
 import java.util.List;

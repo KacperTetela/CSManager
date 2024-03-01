@@ -1,6 +1,6 @@
 package com.csmanager.utils;
 
-import com.csmanager.model.Player;
+import com.csmanager.model.player.Player;
 import com.csmanager.model.lineUp.Role;
 
 import java.util.List;

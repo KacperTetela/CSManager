@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.player;
 
 import java.util.LinkedList;
 import java.util.List;

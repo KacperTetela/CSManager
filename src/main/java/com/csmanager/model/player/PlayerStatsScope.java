@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.player;
 
 public enum PlayerStatsScope {
     PRO(0.2,0.25),
@@ -14,7 +14,6 @@ public enum PlayerStatsScope {
     }
 
     public double rollPotential() {
-
         double potentialVal;
         if (this == PlayerStatsScope.PRO) {
             potentialVal = 0.2 + Math.random()/20;
@@ -24,7 +23,6 @@ public enum PlayerStatsScope {
             potentialVal = 0.05 + Math.random()/20;
         }
         return potentialVal;
-
     }
 
     public double rollValue() {

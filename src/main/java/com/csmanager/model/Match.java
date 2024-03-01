@@ -18,25 +18,24 @@ public class Match {
         this.computerLineUp = computerLineUp;
         playerScore = 0;
         computerScore = 0;
-
     }
 
     public void playMatch() {
         simulateMatch();
         displayMatchResult();
-        if (playerScore > computerScore) {
-            myTeam.addMoney(100);
-        }
-        playerLineUp.trainPlayers();
+        applyProgress();
     }
 
+
     private void simulateMatch() {
-        int valLineUp1 = playerLineUp.getLineUpSkillLevel();
-        int valLineUp2 = computerLineUp.getLineUpSkillLevel();
-        if (valLineUp1 > valLineUp2) {
+        double playerSkill = playerLineUp.getLineUpSkillLevel();
+        double computerSkill = computerLineUp.getLineUpSkillLevel();
+        System.out.println(playerSkill);
+        System.out.println(computerSkill);
+        if (playerSkill > computerSkill) {
             playerScore = 16;
             computerScore = 0;
-        } else if (valLineUp1 < valLineUp2) {
+        } else if (playerSkill < computerSkill) {
             playerScore = 0;
             computerScore = 16;
         } else {
@@ -54,5 +53,12 @@ public class Match {
         } else {
             System.out.println("Draw!\n");
         }
+    }
+
+    private void applyProgress() {
+        if (playerScore > computerScore) {
+            myTeam.addMoney(100);
+        }
+        playerLineUp.trainPlayers();
     }
 }

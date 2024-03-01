@@ -1,10 +1,12 @@
-package com.csmanager.model;
+package com.csmanager.model.player;
 
 import com.csmanager.model.lineUp.Role;
 import com.csmanager.model.lineUp.Side;
 import com.csmanager.utils.Utils;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Player {
     private String name;
@@ -26,9 +28,55 @@ public class Player {
         age = (int) (Math.random() * 20 + 15);
     }
 
+    /**
+     * The method returns the real skill index of a given player, which is the sum of all his statistics.
+     * Each role with potential is checked in the context of a "chance" or a good day for the player
+     */
+/*    public double getSkillLevel() {
+        double skillLevel = 0;
+        for (Role role : Role.values()) {
+            if (potentialPoints.get(role) == null) {
+                continue;
+            } else {
+                //chance(role);
+            }
+            skillLevel += rolePoints.get(role);
+        }
+        return skillLevel;
+    }*/
+
+
+
+/*    private double chance(Role role) {
+        double isItTime = Math.random();
+        if (isItTime <= potentialPoints.get(role)) {
+            System.out.println("Dobrze idzie!  " + name);
+            if (rolePoints.get(role) < 0.75)
+                return rolePoints.get(role) + 0.25;
+            else
+                return 1.0;
+        }
+        return rolePoints.get(role);
+    }*/
+    public boolean isBusy() {
+        return busy;
+    }
+
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public Map<Role, Double> getPotentialPoints() {
+        return potentialPoints;
+    }
+
+    public Map<Role, Double> getRolePoints() {
+        return rolePoints;
+    }
+
     @Override
     public String toString() {
-        return  "\n"+name  +
+        return "\n" + name +
                 "\nrolePoints=" + Utils.createMapDisplay(rolePoints) +
                 "\npotentialPoints=" + Utils.createMapDisplay(potentialPoints);
     }
@@ -50,57 +98,10 @@ public class Player {
         return name;
     }
 
-    /**
-     * The method returns the real skill index of a given player, which is the sum of all his statistics.
-     * Each role with potential is checked in the context of a "chance" or a good day for the player
-     */
-    public double getSkillLevel() {
-        double skillLevel = 0;
-        for (Role role : Role.values()) {
-            if (potentialPoints.get(role) == null) {
-                continue;
-            } else {
-                chance(potentialPoints.get(role), role);
-            }
-            skillLevel += rolePoints.get(role);
-        }
-        return skillLevel;
-    }
-
     public void addPoints(Role role) {
         if (!role.getSide().equals(Side.CT)) {
             double val = rolePoints.get(role) + potentialPoints.get(role) * 0.1;
             rolePoints.put(role, val);
         }
-    }
-
-    /**
-     * The method is intended to provide the opportunity to significantly improve skill points for one match if the
-     * player finds himself in the pool.
-     * The method takes into account that the lower the potential coefficient, the lower the chance for a given player
-     * to have an opportunity.
-     *
-     *         // 3 nooby, 2 koxy i 1 pro
-     *
-     *         // 0.2 - 0.25 // pro
-     *         // 0.1 - 0.2 // kox
-     *         // 0.05 - 0.1 // noob
-     */
-    private void chance(double potential, Role role) {
-        double isItTime = Math.random();
-        if (isItTime <= potentialPoints.get(role)) {
-            if (rolePoints.get(role) < 0.75)
-                rolePoints.put(role, (rolePoints.get(role) + 0.25) );
-            else
-                rolePoints.put(role, 1.0);
-        }
-    }
-
-    public void setBusy(boolean busy) {
-        this.busy = busy;
-    }
-
-    public boolean isBusy() {
-        return busy;
     }
 }

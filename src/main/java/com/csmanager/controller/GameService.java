@@ -2,6 +2,7 @@ package com.csmanager.controller;
 
 import com.csmanager.model.lineUp.*;
 import com.csmanager.model.*;
+import com.csmanager.model.player.PlayerFactory;
 import com.csmanager.utils.Utils;
 
 public class GameService {
@@ -19,8 +20,8 @@ public class GameService {
             //wydaj zarobione pieniądze
             prepareLineup();
             Match match = prepareMatch();
-            match.playMatch();
-
+            match.playMatch(); // draw
+        //branie pod uwagę progresssu
         } while (true); // warunek konca
     }
     /**
@@ -62,7 +63,7 @@ public class GameService {
     private Match prepareMatch() {
         AutoLineUpCreator autoLineUpCreator = new AutoLineUpCreator();
         LineUp computerLineUp = autoLineUpCreator.getLineUp();
-       return new Match(myTeam, playerLineUp, computerLineUp);
+        return new Match(myTeam, playerLineUp, computerLineUp);
     }
 
 }
