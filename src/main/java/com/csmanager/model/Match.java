@@ -6,15 +6,19 @@ public class Match {
     private Team myTeam;
     private Lineup playerLineup;
     private Lineup computerLineup;
-    private int playerScore;
-    private int computerScore;
+    /**
+     * The score int is initialized to store the match result for two teams, respectively for
+     * playerLineup, computerLineup
+     * score[0] = playerScore
+     * score[1] = computerScore
+     */
+    private int[] score;
 
     public Match(Team myTeam, Lineup playerLineup, Lineup computerLineup) {
         this.myTeam = myTeam;
         this.playerLineup = playerLineup;
         this.computerLineup = computerLineup;
-        playerScore = 0;
-        computerScore = 0;
+        score = new int[2];
     }
 
     public void playMatch() {
@@ -30,22 +34,22 @@ public class Match {
         System.out.println(playerSkill);
         System.out.println(computerSkill);
         if (playerSkill > computerSkill) {
-            playerScore = 16;
-            computerScore = 0;
+            score[0] = 16;
+            score[1] = 0;
         } else if (playerSkill < computerSkill) {
-            playerScore = 0;
-            computerScore = 16;
+            score[0] = 0;
+            score[1] = 16;
         } else {
-            playerScore = 15;
-            computerScore = 15;
+            score[0] = 15;
+            score[1] = 15;
         }
     }
 
     private void displayMatchResult() {
-        System.out.println("\nLineUp 1: " + playerScore + " LineUp 2: " + computerScore);
-        if (playerScore > computerScore) {
+        System.out.println("\nLineUp 1: " + score[0] + " LineUp 2: " + score[1]);
+        if (score[0] > score[1]) {
             System.out.println("You win\n");
-        } else if (playerScore < computerScore) {
+        } else if (score[0] < score[1]) {
             System.out.println("You lose\n");
         } else {
             System.out.println("Draw!\n");
@@ -53,7 +57,7 @@ public class Match {
     }
 
     private void applyProgress() {
-        if (playerScore > computerScore) {
+        if (score[0] > score[1]) {
             myTeam.addMoney(100);
         }
         playerLineup.trainPlayers();
