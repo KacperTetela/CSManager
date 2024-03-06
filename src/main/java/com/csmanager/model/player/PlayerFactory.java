@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class PlayerFactory {
     private Queue<Player> allPlayers = new LinkedList<>();
 
-    private String[] names = {"Niko", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko"};
+    private String[] names = {"Neo", "PashaBiceps", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko", "device", "Magisk", "Xyp9x"};
 
     public PlayerFactory() {
         for (int i = 0; i < 6; i++) {

@@ -1,13 +1,13 @@
-package com.csmanager.model.lineUp;
+package com.csmanager.model.lineup;
 
 import com.csmanager.model.player.Player;
 
-public class LineUpPlayer {
+public class LineupPlayer {
     private Player player;
     private Role ctRole;
     private Role tRole;
 
-    public LineUpPlayer(Player player, Role ctRole, Role tRole) {
+    public LineupPlayer(Player player, Role ctRole, Role tRole) {
         this.player = player;
         this.ctRole = ctRole;
         this.tRole = tRole;

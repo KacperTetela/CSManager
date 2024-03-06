@@ -1,22 +1,22 @@
-package com.csmanager.model.lineUp;
+package com.csmanager.model.lineup;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineUp {
-    private List<LineUpPlayer> players = new ArrayList<>();
-    private LineUpPlayer leader;
+public class Lineup {
+    private List<LineupPlayer> players = new ArrayList<>();
+    private LineupPlayer leader;
 
-    public LineUp() {
+    public Lineup() {
     }
 
-    public void addPlayer(LineUpPlayer player) {
+    public void addPlayer(LineupPlayer player) {
         if (player != null)
             this.players.add(player);
     }
 
-    public void addPlayers(List<LineUpPlayer> players) {
-        for (LineUpPlayer player : players) {
+    public void addPlayers(List<LineupPlayer> players) {
+        for (LineupPlayer player : players) {
             addPlayer(player);
         }
     }
@@ -36,16 +36,16 @@ public class LineUp {
         return teamSkillLevel;
     }
 
-    public List<LineUpPlayer> getPlayers() {
+    public List<LineupPlayer> getPlayers() {
         return players;
     }
 
     public void trainPlayers() {
-        players.forEach(lineUpPlayer -> lineUpPlayer.trainPlayer());
+        players.forEach(lineupPlayer -> lineupPlayer.trainPlayer());
     }
 
     public void closeLineup() {
-        for (LineUpPlayer player : players) {
+        for (LineupPlayer player : players) {
             player.getPlayer().setBusy(false);
         }
     }

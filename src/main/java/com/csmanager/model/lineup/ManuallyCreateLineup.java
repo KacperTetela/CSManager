@@ -1,4 +1,4 @@
-package com.csmanager.model.lineUp;
+package com.csmanager.model.lineup;
 
 import com.csmanager.model.player.Player;
 import com.csmanager.model.Team;
@@ -7,13 +7,13 @@ import com.csmanager.utils.Utils;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ManuallyCreateLineUp {
+public class ManuallyCreateLineup {
     private final Team myTeam;
-    private LineUp lineUp;
+    private Lineup lineUp;
 
-    public ManuallyCreateLineUp(Team myTeam) {
+    public ManuallyCreateLineup(Team myTeam) {
         this.myTeam = myTeam;
-        this.lineUp = new LineUp();
+        this.lineUp = new Lineup();
 
     }
 
@@ -53,12 +53,12 @@ public class ManuallyCreateLineUp {
             } else {
                 ctRole = Role.AWPER;
             }
-            lineUp.addPlayer(new LineUpPlayer(playerOptional.get(), ctRole, tRole));
+            lineUp.addPlayer(new LineupPlayer(playerOptional.get(), ctRole, tRole));
             playerOptional.get().setBusy(true);
         }
     }
 
-    public LineUp getLineUp() {
+    public Lineup getLineUp() {
         return lineUp;
     }
 }

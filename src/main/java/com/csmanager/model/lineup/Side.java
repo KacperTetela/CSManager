@@ -1,4 +1,4 @@
-package com.csmanager.model.lineUp;
+package com.csmanager.model.lineup;
 
 public enum Side {
     CT, T, BOTH

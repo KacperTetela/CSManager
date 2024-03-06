@@ -1,7 +1,7 @@
 package com.csmanager.utils;
 
 import com.csmanager.model.player.Player;
-import com.csmanager.model.lineUp.Role;
+import com.csmanager.model.lineup.Role;
 
 import java.util.List;
 import java.util.Map;
@@ -40,9 +40,9 @@ public class Utils {
         System.out.println("Answer YES or NO");
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
-        if (s.equalsIgnoreCase("YES")) {
+        if ((s.equalsIgnoreCase("YES")) || s.equalsIgnoreCase("1")) {
             return true;
-        } else if (s.equalsIgnoreCase("NO")) {
+        } else if ((s.equalsIgnoreCase("NO")) || s.equalsIgnoreCase("2")) {
             return false;
         } else {
             return askAboutboolean(question);

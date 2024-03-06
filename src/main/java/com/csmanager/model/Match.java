@@ -1,21 +1,18 @@
 package com.csmanager.model;
 
-import com.csmanager.model.lineUp.LineUp;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.csmanager.model.lineup.Lineup;
 
 public class Match {
     private Team myTeam;
-    private LineUp playerLineUp;
-    private LineUp computerLineUp;
+    private Lineup playerLineup;
+    private Lineup computerLineup;
     private int playerScore;
     private int computerScore;
 
-    public Match(Team myTeam, LineUp playerLineUp, LineUp computerLineUp) {
+    public Match(Team myTeam, Lineup playerLineup, Lineup computerLineup) {
         this.myTeam = myTeam;
-        this.playerLineUp = playerLineUp;
-        this.computerLineUp = computerLineUp;
+        this.playerLineup = playerLineup;
+        this.computerLineup = computerLineup;
         playerScore = 0;
         computerScore = 0;
     }
@@ -28,8 +25,8 @@ public class Match {
 
 
     private void simulateMatch() {
-        double playerSkill = playerLineUp.getLineUpSkillLevel();
-        double computerSkill = computerLineUp.getLineUpSkillLevel();
+        double playerSkill = playerLineup.getLineUpSkillLevel();
+        double computerSkill = computerLineup.getLineUpSkillLevel();
         System.out.println(playerSkill);
         System.out.println(computerSkill);
         if (playerSkill > computerSkill) {
@@ -59,6 +56,6 @@ public class Match {
         if (playerScore > computerScore) {
             myTeam.addMoney(100);
         }
-        playerLineUp.trainPlayers();
+        playerLineup.trainPlayers();
     }
 }

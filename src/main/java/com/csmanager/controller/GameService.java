@@ -1,13 +1,13 @@
 package com.csmanager.controller;
 
-import com.csmanager.model.lineUp.*;
+import com.csmanager.model.lineup.*;
 import com.csmanager.model.*;
 import com.csmanager.model.player.PlayerFactory;
 import com.csmanager.utils.Utils;
 
 public class GameService {
     private Team myTeam;
-    private LineUp playerLineUp;
+    private Lineup playerLineup;
 
     public GameService() {
 
@@ -41,29 +41,29 @@ public class GameService {
      */
 
     private void prepareLineup() {
-        if (playerLineUp == null) {
-           playerLineUp = buildNewLineUp();
+        if (playerLineup == null) {
+           playerLineup = buildNewLineUp();
            return;
         }
         boolean change = Utils.askAboutboolean("Do you want to change lineup?");
         if (change) {
-            playerLineUp.closeLineup();
-            playerLineUp = buildNewLineUp();
+            playerLineup.closeLineup();
+            playerLineup = buildNewLineUp();
         }
 
     }
 
-    private LineUp buildNewLineUp() {
+    private Lineup buildNewLineUp() {
             System.out.println(myTeam);
-            ManuallyCreateLineUp manuallyCreateLineUp = new ManuallyCreateLineUp(myTeam);
+            ManuallyCreateLineup manuallyCreateLineUp = new ManuallyCreateLineup(myTeam);
             manuallyCreateLineUp.createLineUp();
            return manuallyCreateLineUp.getLineUp();
     }
 
     private Match prepareMatch() {
-        AutoLineUpCreator autoLineUpCreator = new AutoLineUpCreator();
-        LineUp computerLineUp = autoLineUpCreator.getLineUp();
-        return new Match(myTeam, playerLineUp, computerLineUp);
+        AutoLineupCreator autoLineUpCreator = new AutoLineupCreator();
+        Lineup computerLineup = autoLineUpCreator.getLineUp();
+        return new Match(myTeam, playerLineup, computerLineup);
     }
 
 }

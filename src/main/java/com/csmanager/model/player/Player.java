@@ -1,7 +1,7 @@
 package com.csmanager.model.player;
 
-import com.csmanager.model.lineUp.Role;
-import com.csmanager.model.lineUp.Side;
+import com.csmanager.model.lineup.Role;
+import com.csmanager.model.lineup.Side;
 import com.csmanager.utils.Utils;
 
 import java.util.HashMap;
