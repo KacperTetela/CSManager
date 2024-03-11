@@ -13,6 +13,10 @@ public class Player {
     private int age;
     private int daysInTeams;
     private double consistency;
+    /**
+     * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
+     * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
+     */
     private Map<Role, Double> potentialPoints = new HashMap<>();
     private Map<Role, Double> rolePoints = new HashMap<>();
     private boolean busy;

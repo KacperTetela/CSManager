@@ -7,7 +7,7 @@ public class Match {
     private Lineup playerLineup;
     private Lineup computerLineup;
     /**
-     * The score int is initialized to store the match result for two teams, respectively for
+     * The score int array is initialized to store the match result for two teams, respectively for
      * playerLineup, computerLineup
      * score[0] = playerScore
      * score[1] = computerScore

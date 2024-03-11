@@ -10,8 +10,6 @@ public class GameService {
     private Lineup playerLineup;
 
     public GameService() {
-
-
     }
 
     public void startGame() {
@@ -20,15 +18,16 @@ public class GameService {
             //wydaj zarobione pieniądze
             prepareLineup();
             Match match = prepareMatch();
-            match.playMatch(); // draw
-        //branie pod uwagę progresssu
+            match.playMatch();
+            //branie pod uwagę progresssu
         } while (true); // warunek konca
     }
+
     /**
      * Wyswietla interfejs gry czyli ilosc pieniedzy, graczy i zapytaja co robic dalej czy kupowacGraczy() lub bootcampy.
      * Lub zagrac turniej czyli ciag paru meczy.
      * W kazdym meczu mamy byc poproszeni o wybranie graczy do LineUp oraz nadanie im roli
-     *
+     * <p>
      * Zmienic tak zeby bez wzgledu czy wpiszemy BYALI czy byali z malej bylo traktowane jako to samo
      */
     public Team createTeam() {
@@ -42,8 +41,8 @@ public class GameService {
 
     private void prepareLineup() {
         if (playerLineup == null) {
-           playerLineup = buildNewLineUp();
-           return;
+            playerLineup = buildNewLineUp();
+            return;
         }
         boolean change = Utils.askAboutboolean("Do you want to change lineup?");
         if (change) {
@@ -54,10 +53,10 @@ public class GameService {
     }
 
     private Lineup buildNewLineUp() {
-            System.out.println(myTeam);
-            ManuallyCreateLineup manuallyCreateLineUp = new ManuallyCreateLineup(myTeam);
-            manuallyCreateLineUp.createLineUp();
-           return manuallyCreateLineUp.getLineUp();
+        System.out.println(myTeam);
+        ManuallyCreateLineup manuallyCreateLineUp = new ManuallyCreateLineup(myTeam);
+        manuallyCreateLineUp.createLineUp();
+        return manuallyCreateLineUp.getLineUp();
     }
 
     private Match prepareMatch() {

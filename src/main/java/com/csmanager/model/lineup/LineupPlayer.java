@@ -22,6 +22,7 @@ public class LineupPlayer {
             }
             //todo tu pojawia sie Null
             //skillLevel += player.getRolePoints().get(role);
+            //moze chodzic o to ze na poczatku inicjuemy get(object Role), a pozniej przypisujemy role
         }
         return skillLevel;
     }
