@@ -32,6 +32,19 @@ public class Match {
 
     private void simulateMatch() { //TODO musimy to powtorzyc dla 1 rundy, 2 rundy i END
 
+        /*
+        if(STAGE.CT) {
+        
+        }
+
+                if(STAGE.T) {
+
+        }
+
+                if(STAGE.END) {
+        }
+         */
+
         double playerSkill = playerLineup.getLineUpSkillLevel(this);
         double computerSkill = computerLineup.getLineUpSkillLevel(this);
         System.out.println(playerSkill);
