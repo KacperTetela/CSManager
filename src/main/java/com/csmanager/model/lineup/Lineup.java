@@ -1,22 +1,25 @@
 package com.csmanager.model.lineup;
 
+import com.csmanager.model.Match;
+import com.csmanager.model.player.Player;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Lineup {
-    private List<LineupPlayer> players = new ArrayList<>();
-    private LineupPlayer leader;
+    private List<Player> players = new ArrayList<>();
+    private Player leader;
 
     public Lineup() {
     }
 
-    public void addPlayer(LineupPlayer player) {
+    public void addPlayer(Player player) {
         if (player != null)
             this.players.add(player);
     }
 
-    public void addPlayers(List<LineupPlayer> players) {
-        for (LineupPlayer player : players) {
+    public void addPlayers(List<Player> players) {
+        for (Player player : players) {
             addPlayer(player);
         }
     }
@@ -28,15 +31,15 @@ public class Lineup {
                 '}';
     }
 
-    public double getLineUpSkillLevel() {
+    public double getLineUpSkillLevel(Match match) {
         double teamSkillLevel = 0;
         for (int i = 0; i < players.size(); i++) {
-            teamSkillLevel += players.get(i).getSkillLevel();
+            teamSkillLevel += players.get(i).getSkill(match);
         }
         return teamSkillLevel;
     }
 
-    public List<LineupPlayer> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
@@ -45,8 +48,8 @@ public class Lineup {
     }
 
     public void closeLineup() {
-        for (LineupPlayer player : players) {
-            player.getPlayer().setBusy(false);
+        for (Player player : players) {
+            player.setBusy(false);
         }
     }
 }

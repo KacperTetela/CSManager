@@ -1,18 +1,18 @@
 package com.csmanager.utils;
 
+import com.csmanager.model.lineup.RoleType;
 import com.csmanager.model.player.Player;
-import com.csmanager.model.lineup.Role;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Utils {
-    public static String createMapDisplay(Map<Role, Double> map) {
+    public static String createMapDisplay(Map<RoleType, Double> map) {
         String string = "";
-        for (Role role : map.keySet()) {
-            double val = map.get(role);
-            string += String.format(" %s : %.1f %% ", role, val * 100);
+        for (RoleType roleType : map.keySet()) {
+            double val = map.get(roleType);
+            string += String.format(" %s : %.1f %% ", roleType, val * 100);
         }
         return "[" + string + "]";
     }

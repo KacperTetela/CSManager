@@ -6,6 +6,7 @@ public class Match {
     private Team myTeam;
     private Lineup playerLineup;
     private Lineup computerLineup;
+    private Stage stage;
     /**
      * The score int array is initialized to store the match result for two teams, respectively for
      * playerLineup, computerLineup
@@ -19,6 +20,7 @@ public class Match {
         this.playerLineup = playerLineup;
         this.computerLineup = computerLineup;
         score = new int[2];
+        stage = Stage.CT;
     }
 
     public void playMatch() {
@@ -28,9 +30,10 @@ public class Match {
     }
 
 
-    private void simulateMatch() {
-        double playerSkill = playerLineup.getLineUpSkillLevel();
-        double computerSkill = computerLineup.getLineUpSkillLevel();
+    private void simulateMatch() { //TODO musimy to powtorzyc dla 1 rundy, 2 rundy i END
+
+        double playerSkill = playerLineup.getLineUpSkillLevel(this);
+        double computerSkill = computerLineup.getLineUpSkillLevel(this);
         System.out.println(playerSkill);
         System.out.println(computerSkill);
         if (playerSkill > computerSkill) {
@@ -56,6 +59,10 @@ public class Match {
         }
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
     private void applyProgress() {
         if (score[0] > score[1]) {
             myTeam.addMoney(100);
@@ -63,3 +70,22 @@ public class Match {
         playerLineup.trainPlayers();
     }
 }
+
+
+
+/*
+
+Gracz - 2 role.
+Roles - ma te dwie role i zarzadza dostepami do nich i przyjmuje mecz
+
+* rozegraj 1 połowę
+* rozegraj 2 połowę
+* podlicz skille
+*
+*
+*
+*
+*
+*
+*
+* */

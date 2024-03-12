@@ -10,10 +10,13 @@ public class AutoLineupCreator {
     public AutoLineupCreator() {
         Faker faker = new Faker();
         this.lineUp = new Lineup();
-        Role[] rolesCT = {Role.ANCHOR, Role.ANCHOR, Role.ROTATOR, Role.ROTATOR, Role.AWPER};
-        Role[] rolesT = {Role.LURKER, Role.LURKER, Role.RIFLER, Role.RIFLER, Role.AWPER};
+        RoleType[] rolesCT = {RoleType.ANCHOR, RoleType.ANCHOR, RoleType.ROTATOR, RoleType.ROTATOR, RoleType.AWPER};
+        RoleType[] rolesT = {RoleType.LURKER, RoleType.LURKER, RoleType.RIFLER, RoleType.RIFLER, RoleType.AWPER};
         for (int i = 0; i < 5; i++) {
-            lineUp.addPlayer(new LineupPlayer(new Player(faker.name().name(), PlayerStatsScope.NOOB), rolesCT[i], rolesT[i]));
+            Player player = new Player(faker.name().name(), PlayerStatsScope.NOOB);
+            player.setRoles(rolesCT[i], rolesT[i]);
+            player.setBusy(true);
+            lineUp.addPlayer(player);
         }
     }
 

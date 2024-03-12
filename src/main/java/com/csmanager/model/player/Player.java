@@ -1,7 +1,9 @@
 package com.csmanager.model.player;
 
-import com.csmanager.model.lineup.Role;
+import com.csmanager.model.Match;
+import com.csmanager.model.lineup.RoleType;
 import com.csmanager.model.lineup.Side;
+import com.csmanager.model.roles.*;
 import com.csmanager.utils.Utils;
 
 import java.util.HashMap;
@@ -13,17 +15,19 @@ public class Player {
     private int age;
     private int daysInTeams;
     private double consistency;
+    private RoleType roleType;
+    private Roles roles;
     /**
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
      */
-    private Map<Role, Double> potentialPoints = new HashMap<>();
-    private Map<Role, Double> rolePoints = new HashMap<>();
+    private Map<RoleType, Double> potentialPoints = new HashMap<>();
+    private Map<RoleType, Double> rolePoints = new HashMap<>();
     private boolean busy;
 
     public Player(String name, PlayerStatsScope playerStatsScope) {
         this.name = name;
-        Role.getPotentialRoles().forEach(role -> {
+        RoleType.getPotentialRoles().forEach(role -> {
             potentialPoints.put(role, playerStatsScope.rollPotential());
             rolePoints.put(role, playerStatsScope.rollValue());
         });
@@ -32,36 +36,6 @@ public class Player {
         age = (int) (Math.random() * 20 + 15);
     }
 
-    /**
-     * The method returns the real skill index of a given player, which is the sum of all his statistics.
-     * Each role with potential is checked in the context of a "chance" or a good day for the player
-     */
-/*    public double getSkillLevel() {
-        double skillLevel = 0;
-        for (Role role : Role.values()) {
-            if (potentialPoints.get(role) == null) {
-                continue;
-            } else {
-                //chance(role);
-            }
-            skillLevel += rolePoints.get(role);
-        }
-        return skillLevel;
-    }*/
-
-
-
-/*    private double chance(Role role) {
-        double isItTime = Math.random();
-        if (isItTime <= potentialPoints.get(role)) {
-            System.out.println("Dobrze idzie!  " + name);
-            if (rolePoints.get(role) < 0.75)
-                return rolePoints.get(role) + 0.25;
-            else
-                return 1.0;
-        }
-        return rolePoints.get(role);
-    }*/
     public boolean isBusy() {
         return busy;
     }
@@ -70,11 +44,11 @@ public class Player {
         this.busy = busy;
     }
 
-    public Map<Role, Double> getPotentialPoints() {
+    public Map<RoleType, Double> getPotentialPoints() {
         return potentialPoints;
     }
 
-    public Map<Role, Double> getRolePoints() {
+    public Map<RoleType, Double> getRolePoints() {
         return rolePoints;
     }
 
@@ -102,10 +76,39 @@ public class Player {
         return name;
     }
 
-    public void addPoints(Role role) {
-        if (!role.getSide().equals(Side.CT)) {
-            double val = rolePoints.get(role) + potentialPoints.get(role) * 0.1;
-            rolePoints.put(role, val);
+    public void addPoints(RoleType roleType) {
+        if (!roleType.getSide().equals(Side.CT)) {
+            double val = rolePoints.get(roleType) + potentialPoints.get(roleType) * 0.1;
+            rolePoints.put(roleType, val);
         }
     }
+
+    public void setRoles(RoleType ctRole, RoleType tRole) {
+        roles = new Roles(createRole(ctRole), createRole(tRole));
+    }
+
+    private Role createRole(RoleType roleType) {
+        return switch (roleType) {
+            case LURKER -> new Lurker(this);
+            case RIFLER -> new Rifler(this);
+            case ANCHOR -> new Anchor(this);
+            case ROTATOR -> new Rotator(this);
+            case AWPER -> new Awper(this);
+        };
+    }
+
+    public double getSkill(Match match){
+        roles.
+    }
+
+    public void increaseSkill(Match match){
+        //oddelegowane do roles
+    }
+
 }
+
+/*
+*
+*
+*
+* */

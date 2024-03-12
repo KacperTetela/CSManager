@@ -14,7 +14,6 @@ public class ManuallyCreateLineup {
     public ManuallyCreateLineup(Team myTeam) {
         this.myTeam = myTeam;
         this.lineUp = new Lineup();
-
     }
 
     public void createLineUp() {
@@ -36,25 +35,27 @@ public class ManuallyCreateLineup {
             System.out.println("Select roles CT for " + name + "\n anchor=0 rotator=1 awp=2");
             int ctRoleVal = scanner.nextInt();
 
-            Role tRole;
+            RoleType tRoleType;
             if (tRoleVal == 0) {
-                tRole = Role.RIFLER;
+                tRoleType = RoleType.RIFLER;
             } else if (tRoleVal == 1) {
-                tRole = Role.LURKER;
+                tRoleType = RoleType.LURKER;
             } else {
-                tRole = Role.AWPER;
+                tRoleType = RoleType.AWPER;
             }
 
-            Role ctRole;
+            RoleType ctRoleType;
             if (ctRoleVal == 0) {
-                ctRole = Role.ANCHOR;
+                ctRoleType = RoleType.ANCHOR;
             } else if (ctRoleVal == 1) {
-                ctRole = Role.ROTATOR;
+                ctRoleType = RoleType.ROTATOR;
             } else {
-                ctRole = Role.AWPER;
+                ctRoleType = RoleType.AWPER;
             }
-            lineUp.addPlayer(new LineupPlayer(playerOptional.get(), ctRole, tRole));
-            playerOptional.get().setBusy(true);
+            Player player = playerOptional.get();
+            player.setRoles(ctRoleType, tRoleType);
+            lineUp.addPlayer(player);
+            player.setBusy(true);
         }
     }
 
@@ -62,3 +63,10 @@ public class ManuallyCreateLineup {
         return lineUp;
     }
 }
+
+/*
+* Match + playera + role
+*  = strategia
+*
+*
+* */

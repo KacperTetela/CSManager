@@ -3,18 +3,17 @@ package com.csmanager.model.lineup;
 import java.util.Arrays;
 import java.util.List;
 
-public enum Role {
+public enum RoleType {
     ANCHOR(Side.CT, false),
     AWPER(Side.BOTH, true),
     ROTATOR(Side.CT, false),
-    LEADER(Side.BOTH, true),
     RIFLER(Side.T, true),
     LURKER(Side.T, true);
 
     private Side side;
     private boolean isPotentialRequired;
 
-    Role(Side side, boolean isPotentialRequired) {
+    RoleType(Side side, boolean isPotentialRequired) {
         this.side = side;
         this.isPotentialRequired = isPotentialRequired;
     }
@@ -24,7 +23,7 @@ public enum Role {
     }
 
 
-    public static List<Role> getPotentialRoles() {
+    public static List<RoleType> getPotentialRoles() {
         return Arrays.stream(values())
                         .filter(role -> role.isPotentialRequired)
                                 .toList();

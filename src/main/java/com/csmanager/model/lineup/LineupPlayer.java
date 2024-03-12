@@ -4,40 +4,44 @@ import com.csmanager.model.player.Player;
 
 public class LineupPlayer {
     private Player player;
-    private Role ctRole;
-    private Role tRole;
+    private RoleType ctRoleType;
+    private RoleType tRoleType;
 
-    public LineupPlayer(Player player, Role ctRole, Role tRole) {
+    public LineupPlayer(Player player, RoleType ctRoleType, RoleType tRoleType) {
         this.player = player;
-        this.ctRole = ctRole;
-        this.tRole = tRole;
+        this.ctRoleType = ctRoleType;
+        this.tRoleType = tRoleType;
     }
 
-    public double getSkillLevel() {
+    public double getTSkillLevel() {
         double skillLevel = 0;
-        Role[] rolesForEachPlayer = {tRole, ctRole};
-        for (Role role : rolesForEachPlayer) {
-            if (Chance.isRequired(role, player)) {
-                skillLevel += Chance.calculate(role, player);
-            }
-            //todo tu pojawia sie Null
-            //skillLevel += player.getRolePoints().get(role);
-            //moze chodzic o to ze na poczatku inicjuemy get(object Role), a pozniej przypisujemy role
-        }
+        RoleType roleType = tRoleType;
+        if (Chance.isRequired(roleType, player))
+            skillLevel += Chance.calculate(roleType, player);
+        skillLevel += player.getRolePoints().get(roleType);
+        return skillLevel;
+    }
+
+    public double getCTSkillLevel() {
+        double skillLevel = 0;
+        RoleType roleType = ctRoleType;
+        if (Chance.isRequired(roleType, player))
+            skillLevel += Chance.calculate(roleType, player);
+        skillLevel += player.getRolePoints().get(roleType);
         return skillLevel;
     }
 
     public void trainPlayer() {
-        player.addPoints(tRole);
-        player.addPoints(ctRole);
+        player.addPoints(tRoleType);
+        player.addPoints(ctRoleType);
     }
 
     @Override
     public String toString() {
         return "LineUpPlayer{" +
                 "player=" + player +
-                ", ctRole=" + ctRole +
-                ", tRole=" + tRole +
+                ", ctRoleType=" + ctRoleType +
+                ", tRoleType=" + tRoleType +
                 '}';
     }
 
