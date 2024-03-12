@@ -34,11 +34,11 @@ public class Match {
 
         /*
         if(STAGE.CT) {
-        
+        get line up ct skill level
         }
 
                 if(STAGE.T) {
-
+                get line up t skill level
         }
 
                 if(STAGE.END) {
