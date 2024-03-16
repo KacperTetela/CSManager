@@ -1,27 +1,28 @@
-package com.csmanager.model.lineup;
+package com.csmanager.model.roster;
 
 import com.csmanager.model.player.Player;
-import com.csmanager.model.Team;
+import com.csmanager.model.roles.roleType.RoleType;
+import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
 
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ManuallyCreateLineup {
+public class RosterLock {
     private final Team myTeam;
-    private Lineup lineUp;
+    private Roster roster;
 
-    public ManuallyCreateLineup(Team myTeam) {
+    public RosterLock(Team myTeam) {
         this.myTeam = myTeam;
-        this.lineUp = new Lineup();
+        this.roster = new Roster();
     }
 
-    public void createLineUp() {
+    public void createRoster() {
         System.out.println();
         for (int i = 0; i < 5; i++) {
             System.out.println();
             Scanner scanner = new Scanner(System.in);
-            String name = Utils.askAboutString("Write name of players which you want to add to your lineup");
+            String name = Utils.askAboutString("Write name of players which you want to add to your roster");
 
             Optional<Player> playerOptional = myTeam.findPlayerNotBusyByName(name);
             if (playerOptional.isEmpty()) {
@@ -54,13 +55,13 @@ public class ManuallyCreateLineup {
             }
             Player player = playerOptional.get();
             player.setRoles(ctRoleType, tRoleType);
-            lineUp.addPlayer(player);
+            roster.addPlayer(player);
             player.setBusy(true);
         }
     }
 
-    public Lineup getLineUp() {
-        return lineUp;
+    public Roster getRoster() {
+        return roster;
     }
 }
 

@@ -1,4 +1,4 @@
-package com.csmanager.model.lineup;
+package com.csmanager.model.roles.roleType;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,16 +1,15 @@
-package com.csmanager.model.lineup;
+package com.csmanager.model.roster;
 
-import com.csmanager.model.Match;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lineup {
+public class Roster {
     private List<Player> players = new ArrayList<>();
-    private Player leader;
 
-    public Lineup() {
+    public Roster() {
     }
 
     public void addPlayer(Player player) {
@@ -31,7 +30,7 @@ public class Lineup {
                 '}';
     }
 
-    public double getLineUpSkillLevel(Match match) {
+    public double getRosterSkillLevel(Match match) {
         double teamSkillLevel = 0;
         for (int i = 0; i < players.size(); i++) {
             teamSkillLevel += players.get(i).getSkill(match);
@@ -44,10 +43,11 @@ public class Lineup {
     }
 
     public void trainPlayers() {
-        players.forEach(lineupPlayer -> lineupPlayer.trainPlayer());
+        players.forEach(player -> player.trainPlayer());
     }
+    //gdzie sa przechowywane role?
 
-    public void closeLineup() {
+    public void closeRoster() {
         for (Player player : players) {
             player.setBusy(false);
         }

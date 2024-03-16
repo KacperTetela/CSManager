@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.shop;
 
 import java.util.Arrays;
 import java.util.HashMap;

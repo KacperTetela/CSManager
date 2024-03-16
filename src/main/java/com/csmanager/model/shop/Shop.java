@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.shop;
 
 public class Shop {
     private String nameOfProduct;

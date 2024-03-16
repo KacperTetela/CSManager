@@ -1,9 +1,10 @@
 package com.csmanager.model.player;
 
-import com.csmanager.model.Match;
-import com.csmanager.model.lineup.RoleType;
-import com.csmanager.model.lineup.Side;
-import com.csmanager.model.roles.*;
+import com.csmanager.model.match.Match;
+import com.csmanager.model.match.MatchStage;
+import com.csmanager.model.roles.roleType.RoleType;
+import com.csmanager.model.roles.roleType.Side;
+import com.csmanager.model.roles.roles.*;
 import com.csmanager.utils.Utils;
 
 import java.util.HashMap;
@@ -15,7 +16,6 @@ public class Player {
     private int age;
     private int daysInTeams;
     private double consistency;
-    private RoleType roleType;
     private Roles roles;
     /**
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
@@ -98,11 +98,20 @@ public class Player {
     }
 
     public double getSkill(Match match){
-        roles.
+        //zwraca nam skila danego gracza w danym meczu w danym etapie gry
+        System.out.println(this.toString() + roles.getSkill(match));
+        return roles.getSkill(match);
     }
 
     public void increaseSkill(Match match){
         //oddelegowane do roles
+    }
+
+    public void trainPlayer() {
+        Role TRoleType = roles.getRoleByMatchStage(MatchStage.T);
+        Role CtRoleType = roles.getRoleByMatchStage(MatchStage.T);
+/*        addPoints(TRoleType);
+        addPoints(CtRoleType);*/
     }
 
 }

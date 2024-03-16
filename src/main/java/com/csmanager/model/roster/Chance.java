@@ -1,6 +1,7 @@
-package com.csmanager.model.lineup;
+package com.csmanager.model.roster;
 
 import com.csmanager.model.player.Player;
+import com.csmanager.model.roles.roleType.RoleType;
 
 /**
  * The method is intended to provide the opportunity to significantly improve skill points for one match if the

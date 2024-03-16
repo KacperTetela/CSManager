@@ -1,16 +1,16 @@
-package com.csmanager.model.roles;
+package com.csmanager.model.roles.roles;
 
-import com.csmanager.model.Match;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
 
-public class Awper extends Role {
-    public Awper(Player player) {
+public class Rifler extends Role {
+    public Rifler(Player player) {
         super(player);
     }
 
     @Override
     double calculateSkill(Match match) {
-        return 0;
+        return 1.1;
     }
 
     @Override

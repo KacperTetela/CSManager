@@ -1,6 +1,6 @@
-package com.csmanager.model.roles;
+package com.csmanager.model.roles.roles;
 
-import com.csmanager.model.Match;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
 
 public abstract class Role {

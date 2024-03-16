@@ -1,10 +1,10 @@
-package com.csmanager.model.roles;
+package com.csmanager.model.roles.roles;
 
-import com.csmanager.model.Match;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
 
-public class Rifler extends Role {
-    public Rifler(Player player) {
+public class Awper extends Role {
+    public Awper(Player player) {
         super(player);
     }
 

@@ -1,13 +1,14 @@
 package com.csmanager.controller;
 
-import com.csmanager.model.lineup.*;
-import com.csmanager.model.*;
+import com.csmanager.model.roster.*;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.PlayerFactory;
+import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
 
 public class GameService {
     private Team myTeam;
-    private Lineup playerLineup;
+    private Roster playerRoster;
 
     public GameService() {
     }
@@ -40,29 +41,29 @@ public class GameService {
      */
 
     private void prepareLineup() {
-        if (playerLineup == null) {
-            playerLineup = buildNewLineUp();
+        if (playerRoster == null) {
+            playerRoster = buildNewLineUp();
             return;
         }
-        boolean change = Utils.askAboutboolean("Do you want to change lineup?");
+        boolean change = Utils.askAboutboolean("Do you want to change roster?");
         if (change) {
-            playerLineup.closeLineup();
-            playerLineup = buildNewLineUp();
+            playerRoster.closeRoster();
+            playerRoster = buildNewLineUp();
         }
 
     }
 
-    private Lineup buildNewLineUp() {
+    private Roster buildNewLineUp() {
         System.out.println(myTeam);
-        ManuallyCreateLineup manuallyCreateLineUp = new ManuallyCreateLineup(myTeam);
-        manuallyCreateLineUp.createLineUp();
-        return manuallyCreateLineUp.getLineUp();
+        RosterLock manuallyCreateLineUp = new RosterLock(myTeam);
+        manuallyCreateLineUp.createRoster();
+        return manuallyCreateLineUp.getRoster();
     }
 
     private Match prepareMatch() {
-        AutoLineupCreator autoLineUpCreator = new AutoLineupCreator();
-        Lineup computerLineup = autoLineUpCreator.getLineUp();
-        return new Match(myTeam, playerLineup, computerLineup);
+        AutoRosterCreator autoLineUpCreator = new AutoRosterCreator();
+        Roster computerRoster = autoLineUpCreator.getLineUp();
+        return new Match(myTeam, playerRoster, computerRoster);
     }
 
 }

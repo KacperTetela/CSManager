@@ -1,4 +1,4 @@
-package com.csmanager.model;
+package com.csmanager.model.team;
 
 import com.csmanager.model.player.Player;
 import com.csmanager.utils.Utils;
@@ -10,6 +10,7 @@ public class Team {
     private String name;
     private List<Player> players;
     private int money;
+    private Player leader;
 
     public Team(String name, List<Player> players) {
         this.name = name;

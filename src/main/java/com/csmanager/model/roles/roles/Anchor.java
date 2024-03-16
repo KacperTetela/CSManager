@@ -1,10 +1,10 @@
-package com.csmanager.model.roles;
+package com.csmanager.model.roles.roles;
 
-import com.csmanager.model.Match;
+import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
 
-public class Lurker extends Role{
-    public Lurker(Player player) {
+public class Anchor extends Role{
+    public Anchor(Player player) {
         super(player);
     }
 
@@ -17,4 +17,9 @@ public class Lurker extends Role{
     double calculateIncreaseSkill(Match match) {
         return 0;
     }
+    //Match.java
+    //Chance.java
+    //Player.java (potential)
+    //
+
 }
