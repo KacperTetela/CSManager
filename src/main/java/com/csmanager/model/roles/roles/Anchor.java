@@ -10,7 +10,7 @@ public class Anchor extends Role{
 
     @Override
     double calculateSkill(Match match) {
-        return 0;
+        return 1.5;
     }
 
     @Override

@@ -10,7 +10,7 @@ public class Awper extends Role {
 
     @Override
     double calculateSkill(Match match) {
-        return 0;
+        return 2;
     }
 
     @Override
