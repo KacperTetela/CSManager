@@ -1,7 +1,6 @@
 package com.csmanager.model.roster.rosterLock;
 
 import com.csmanager.model.player.Player;
-import com.csmanager.model.roles.roleType.RoleType;
 import com.csmanager.model.roster.Roster;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
@@ -9,9 +8,6 @@ import com.csmanager.utils.Utils;
 import java.util.Optional;
 
 public class RosterPlayersService {
-    public RosterPlayersService() {
-    }
-
     public void select(Team myTeam, Roster roster) {
         System.out.println();
         for (int i = 0; i < 5; i++) {
@@ -25,7 +21,6 @@ public class RosterPlayersService {
                 continue;
             }
             Player player = playerOptional.get();
-            player.setRoles(ctRoleType, tRoleType);
             roster.addPlayer(player);
             player.setBusy(true);
         }
