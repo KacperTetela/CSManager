@@ -15,7 +15,7 @@ public abstract class Role {
     abstract double calculateIncreaseSkill(Match match);
 
     boolean isRepeated() {
-
+        return true;
     }
     //sprawdza czy wybrana rola sie nie powtarza za czesto MAX 2 razy
 }
