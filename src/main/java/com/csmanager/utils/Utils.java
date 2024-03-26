@@ -54,4 +54,15 @@ public class Utils {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+
+    public static int askAboutInt(String question, int min,int max) {
+        System.out.printf(question + " (min: %d, max:%d:\n",min,max);
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        if (input < min || input > max) {
+            System.out.println("Outside min/max");
+            return askAboutInt(question, min, max);
+        }
+        return input;
+    }
 }

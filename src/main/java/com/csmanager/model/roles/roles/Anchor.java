@@ -2,6 +2,7 @@ package com.csmanager.model.roles.roles;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
+import com.csmanager.model.roles.roleType.RoleType;
 
 public class Anchor extends Role{
     public Anchor(Player player) {
@@ -10,7 +11,7 @@ public class Anchor extends Role{
 
     @Override
     double calculateSkill(Match match) {
-        return 1.5;
+        return 1;
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.csmanager.model.roles.roles;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.Player;
+import com.csmanager.model.roles.roleType.RoleType;
 
 public class Lurker extends Role{
     public Lurker(Player player) {
@@ -10,7 +11,7 @@ public class Lurker extends Role{
 
     @Override
     double calculateSkill(Match match) {
-        return 4;
+        return player.getRolePoints().get(RoleType.LURKER);
     }
 
     @Override

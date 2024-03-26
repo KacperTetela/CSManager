@@ -18,7 +18,8 @@ public class RosterLockFacade {
 
     public void createRoster() {
         rosterPlayersService.select(myTeam, roster);
-        rosterRolesService.select(myTeam, roster);
+        RosterRolesService2 rosterRolesService2 = new RosterRolesService2();
+        rosterRolesService2.select(roster.getPlayers());
     }
 
     public Roster getRoster() {
