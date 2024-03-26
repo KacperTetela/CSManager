@@ -33,6 +33,7 @@ public class Roster {
     public double getRosterSkillLevel(Match match) {
         double teamSkillLevel = 0;
         for (int i = 0; i < players.size(); i++) {
+            System.out.println(players.get(i).getName() + "  " + players.get(i).getSkill(match));
             teamSkillLevel += players.get(i).getSkill(match);
         }
         return teamSkillLevel;
@@ -45,7 +46,6 @@ public class Roster {
     public void trainPlayers() {
         players.forEach(player -> player.trainPlayer());
     }
-    //gdzie sa przechowywane role?
 
     public void closeRoster() {
         for (Player player : players) {

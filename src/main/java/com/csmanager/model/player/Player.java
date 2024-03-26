@@ -31,6 +31,11 @@ public class Player {
             potentialPoints.put(role, playerStatsScope.rollPotential());
             rolePoints.put(role, playerStatsScope.rollValue());
         });
+        //Warning
+        RoleType.getNonPotentialRoles().forEach(role -> {
+            rolePoints.put(role, playerStatsScope.rollValue());
+        });
+
         consistency = 0.5 + Math.random() * 0.5;
         daysInTeams = (int) (Math.random() * 1000);
         age = (int) (Math.random() * 20 + 15);

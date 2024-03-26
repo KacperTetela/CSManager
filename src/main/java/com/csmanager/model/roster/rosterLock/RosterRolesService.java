@@ -2,58 +2,80 @@ package com.csmanager.model.roster.rosterLock;
 
 import com.csmanager.model.player.Player;
 import com.csmanager.model.roles.roleType.RoleType;
-import com.csmanager.model.roster.Roster;
-import com.csmanager.model.team.Team;
+import com.csmanager.model.roles.roleType.Side;
 import com.csmanager.utils.Utils;
 
-import java.util.List;
+import java.util.*;
 
 public class RosterRolesService {
-    public void select( Roster roster) {
-        byte[][] isSetted = new byte[2][3];
-        /**
-         * byte isSetted [][] - first[] = CT or T, second[] = RoleType
-         */
-        List<Player> players = roster.getPlayers();
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
 
-            int tRoleVal = Utils.askAboutInt("Select roles T for " + player.getName() + "\n " +
-                    "rifler=1 lurker=2 awp=3");
-            if (isSetted[0][tRoleVal - 1] >= 2) {
-                i--;
-                System.out.println("Selected Role is played");
-                continue;
-            }
-            isSetted[0][tRoleVal - 1]++;
+    private List<RoleCounter> roleCounters = new ArrayList<>();
 
-
-            int ctRoleVal = Utils.askAboutInt("Select roles CT for " + player.getName() + "\n anchor=1 rotator=2 awp=3");
-
-            switch (ctRoleVal) {
-                case 1 -> isSetted[1][0] += 1;
-                case 2 -> isSetted[1][1] += 1;
-                case 3 -> isSetted[1][2] += 1;
-            }
-
-            RoleType tRoleType;
-            if (tRoleVal == 1) {
-                tRoleType = RoleType.RIFLER;
-            } else if (tRoleVal == 2) {
-                tRoleType = RoleType.LURKER;
+    public RosterRolesService() {
+        Arrays.stream(RoleType.values()).forEach(role ->{
+            if (role.getSide() == Side.BOTH) {
+                roleCounters.add(new RoleCounter(Side.T, role));
+                roleCounters.add(new RoleCounter(Side.CT, role));
             } else {
-                tRoleType = RoleType.AWPER;
+                roleCounters.add(new RoleCounter(role.getSide(), role));
             }
 
-            RoleType ctRoleType;
-            if (ctRoleVal == 1) {
-                ctRoleType = RoleType.ANCHOR;
-            } else if (ctRoleVal == 2) {
-                ctRoleType = RoleType.ROTATOR;
-            } else {
-                ctRoleType = RoleType.AWPER;
-            }
-            player.setRoles(ctRoleType, tRoleType);
+        } );
+    }
+
+
+    public void select(List<Player> players) {
+        for (Player player : players) {
+            RoleType tRole = selectRoleForPlayer(player, Side.T);
+            RoleType ctRole = selectRoleForPlayer(player, Side.CT);
+            player.setRoles(tRole, ctRole);
         }
     }
+
+    private RoleType selectRoleForPlayer(Player player, Side side) {
+        String question = getQuestionForRoleSelection(player, side);
+        int selectedNr = Utils.askAboutInt(question,1,availableRolesForSide(side).size());
+        RoleCounter selectedRole = availableRolesForSide(side).get(selectedNr - 1);
+        selectedRole.increment();
+        return selectedRole.roleType;
+    }
+
+    private String getQuestionForRoleSelection(Player player, Side side) {
+        String question = String.format("Select role for %s for side %s: \n", player.getName(),side);
+        int count = 1;
+        for (RoleCounter roleCounter : availableRolesForSide(side)) {
+            question += String.format("%d. %s ", count++, roleCounter.roleType);
+        }
+        return question;
+    }
+
+    private List<RoleCounter> availableRolesForSide(Side side) {
+        List<RoleCounter> availableRoles = new ArrayList<>();
+        for (RoleCounter roleCounter : roleCounters) {
+            if (roleCounter.side == side && !roleCounter.isFull()  ) {
+                availableRoles.add(roleCounter);
+            }
+        }
+        return availableRoles;
+    }
+
+   final class RoleCounter {
+         Side side;
+         RoleType roleType;
+         int count = 0;
+
+        public RoleCounter(Side side, RoleType roleType) {
+            this.side = side;
+            this.roleType = roleType;
+        }
+
+        void increment() {
+            count++;
+        }
+
+        boolean isFull() {
+            return count >= roleType.getMaxPerRoosterSide();
+        }
+    }
+
 }

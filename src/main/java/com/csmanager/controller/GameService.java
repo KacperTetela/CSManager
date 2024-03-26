@@ -62,8 +62,8 @@ public class GameService {
     }
 
     private Match prepareMatch() {
-        AutoRosterCreator autoLineUpCreator = new AutoRosterCreator();
-        Roster computerRoster = autoLineUpCreator.getLineUp();
+        AutoRosterCreator autoRosterCreator = new AutoRosterCreator();
+        Roster computerRoster = autoRosterCreator.getRoster();
         return new Match(myTeam, playerRoster, computerRoster);
     }
 

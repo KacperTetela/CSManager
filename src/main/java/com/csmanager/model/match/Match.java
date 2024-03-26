@@ -46,8 +46,8 @@ public class Match {
         if (getMatchStage() == MatchStage.ENDED) {
             //
         }
-        System.out.println(managerRosterSkill);
-        System.out.println(opponentRosterSkill);
+/*        System.out.println(managerRosterSkill);
+        System.out.println(opponentRosterSkill);*/
     }
 
     private void displayMatchResult() {

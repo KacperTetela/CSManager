@@ -9,7 +9,6 @@ public enum RoleType {
     ROTATOR(Side.CT, false),
     RIFLER(Side.T, true),
     LURKER(Side.T, true);
-
     private Side side;
     private boolean isPotentialRequired;
     private int maxPerRoosterSide;
@@ -40,11 +39,15 @@ public enum RoleType {
                                 .toList();
     }
 
+    public static List<RoleType> getNonPotentialRoles() {
+        return Arrays.stream(values())
+                .filter(role -> !role.isPotentialRequired)
+                .toList();
+    }
+
     public static List<RoleType> getRolesBy(Side side) {
         return Arrays.stream(RoleType.values())
                 .filter(type -> type.getSide() == side || type.getSide() == Side.BOTH)
                 .toList();
     }
-
-
 }
