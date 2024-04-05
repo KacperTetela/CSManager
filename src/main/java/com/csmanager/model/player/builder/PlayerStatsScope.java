@@ -1,4 +1,4 @@
-package com.csmanager.model.player;
+package com.csmanager.model.player.builder;
 
 public enum PlayerStatsScope {
     PRO(0.2,0.25),
@@ -25,7 +25,7 @@ public enum PlayerStatsScope {
         return potentialVal;
     }
 
-    public double rollValue() {
+    public double rollStats() {
         return Math.random()/4 + 0.2; // 0,2 - 0,45
     }
 }

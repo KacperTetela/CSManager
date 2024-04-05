@@ -1,6 +1,6 @@
 package com.csmanager.model.roster.rosterLock;
 
-import com.csmanager.model.player.Player;
+import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.roles.roleType.RoleType;
 import com.csmanager.model.roles.roleType.Side;
 import com.csmanager.utils.Utils;

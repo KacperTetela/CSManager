@@ -1,4 +1,4 @@
-package com.csmanager.model.player;
+package com.csmanager.model.player.builder;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
@@ -25,15 +25,15 @@ public class Player {
     private Map<RoleType, Double> rolePoints = new HashMap<>();
     private boolean busy;
 
-    public Player(String name, PlayerStatsScope playerStatsScope) {
+    Player(String name, PlayerStatsScope playerStatsScope) {
         this.name = name;
         RoleType.getPotentialRoles().forEach(role -> {
             potentialPoints.put(role, playerStatsScope.rollPotential());
-            rolePoints.put(role, playerStatsScope.rollValue());
+            rolePoints.put(role, playerStatsScope.rollStats());
         });
         //Warning
         RoleType.getNonPotentialRoles().forEach(role -> {
-            rolePoints.put(role, playerStatsScope.rollValue());
+            rolePoints.put(role, playerStatsScope.rollStats());
         });
 
         consistency = 0.5 + Math.random() * 0.5;
@@ -102,13 +102,13 @@ public class Player {
         };
     }
 
-    public double getSkill(Match match){
+    public double getSkill(Match match) {
         //zwraca nam skila danego gracza w danym meczu w danym etapie gry
         System.out.println(this.toString() + roles.getSkill(match));
         return roles.getSkill(match);
     }
 
-    public void increaseSkill(Match match){
+    public void increaseSkill(Match match) {
         //oddelegowane do roles
     }
 
@@ -120,9 +120,3 @@ public class Player {
     }
 
 }
-
-/*
-*
-*
-*
-* */

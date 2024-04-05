@@ -2,7 +2,7 @@ package com.csmanager.controller;
 
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
-import com.csmanager.model.player.PlayerFactory;
+import com.csmanager.model.player.factory.PlayerFactory;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;

@@ -1,7 +1,7 @@
 package com.csmanager.model.roles.roles;
 
 import com.csmanager.model.match.Match;
-import com.csmanager.model.player.Player;
+import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.roles.roleType.RoleType;
 
 public class Awper extends Role {

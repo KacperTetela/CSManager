@@ -10,8 +10,8 @@ public class ShopCreator {
 
     public ShopCreator() {
         Arrays.stream(names).allMatch(name -> {
-            Shop shop = new Shop(name, 100);
-            shopMap.put(shopMap.size(),shop);
+            //Shop shop = new Shop(name, 100);
+            //shopMap.put(shopMap.size(),shop);
             return true;
         });
     }

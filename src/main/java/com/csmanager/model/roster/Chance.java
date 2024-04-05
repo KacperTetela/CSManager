@@ -1,6 +1,6 @@
 package com.csmanager.model.roster;
 
-import com.csmanager.model.player.Player;
+import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.roles.roleType.RoleType;
 
 /**

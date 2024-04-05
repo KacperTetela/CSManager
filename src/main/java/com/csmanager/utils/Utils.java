@@ -1,7 +1,7 @@
 package com.csmanager.utils;
 
 import com.csmanager.model.roles.roleType.RoleType;
-import com.csmanager.model.player.Player;
+import com.csmanager.model.player.builder.Player;
 
 import java.util.List;
 import java.util.Map;

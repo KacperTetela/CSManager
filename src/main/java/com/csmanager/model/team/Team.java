@@ -1,6 +1,6 @@
 package com.csmanager.model.team;
 
-import com.csmanager.model.player.Player;
+import com.csmanager.model.player.builder.Player;
 import com.csmanager.utils.Utils;
 
 import java.util.List;

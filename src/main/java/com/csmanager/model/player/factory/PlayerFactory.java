@@ -1,4 +1,8 @@
-package com.csmanager.model.player;
+package com.csmanager.model.player.factory;
+
+import com.csmanager.model.player.builder.PlayerBuilder;
+import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.builder.PlayerStatsScope;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +24,10 @@ public class PlayerFactory {
             } else {
                 playerStatsScope = PlayerStatsScope.PRO;
             }
-            Player player = new Player(names[i], playerStatsScope);
+            PlayerBuilder playerBuilder = new PlayerBuilder();
+            playerBuilder.name(names[i])
+                    .playerStatsScope(playerStatsScope);
+            Player player = playerBuilder.build();
             allPlayers.add(player);
         }
     }

@@ -1,7 +1,7 @@
 package com.csmanager.model.roster;
 
-import com.csmanager.model.player.Player;
-import com.csmanager.model.player.PlayerStatsScope;
+import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.builder.PlayerStatsScope;
 import com.csmanager.model.roles.roleType.RoleType;
 import com.github.javafaker.Faker;
 
