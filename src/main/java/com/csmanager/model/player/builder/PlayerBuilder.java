@@ -1,16 +1,15 @@
 package com.csmanager.model.player.builder;
 
-public class PlayerBuilder {
-    private String name;
-    private PlayerStatsScope playerStatsScope;
+public abstract class PlayerBuilder {
+    protected String name;
+    protected PlayerStatsScope playerStatsScope;
 
     public PlayerBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public PlayerBuilder playerStatsScope(PlayerStatsScope playerStatsScope) {
-        this.playerStatsScope = playerStatsScope;
+    public PlayerBuilder playerStatsScope() {
         return this;
     }
 

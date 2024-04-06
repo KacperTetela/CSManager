@@ -2,6 +2,7 @@ package com.csmanager.model.player.factory;
 
 import com.csmanager.model.player.builder.PlayerBuilder;
 import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.builder.PlayerBuilderPro;
 import com.csmanager.model.player.builder.PlayerStatsScope;
 
 import java.util.LinkedList;
@@ -24,9 +25,9 @@ public class PlayerFactory {
             } else {
                 playerStatsScope = PlayerStatsScope.PRO;
             }
-            PlayerBuilder playerBuilder = new PlayerBuilder();
+            PlayerBuilder playerBuilder = new PlayerBuilderPro();
             playerBuilder.name(names[i])
-                    .playerStatsScope(playerStatsScope);
+                    .playerStatsScope();
             Player player = playerBuilder.build();
             allPlayers.add(player);
         }
