@@ -1,9 +1,6 @@
 package com.csmanager.model.player.factory;
 
-import com.csmanager.model.player.builder.PlayerBuilder;
-import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.player.builder.PlayerBuilderPro;
-import com.csmanager.model.player.builder.PlayerStatsScope;
+import com.csmanager.model.player.builder.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,21 +13,28 @@ public class PlayerFactory {
     private String[] names = {"Neo", "PashaBiceps", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko", "device", "Magisk", "Xyp9x"};
 
     public PlayerFactory() {
+        setUpFactory();
+    }
+
+    private void setUpFactory() {
         for (int i = 0; i < 6; i++) {
-            PlayerStatsScope playerStatsScope;
-            if (i < 3) {
-                playerStatsScope = PlayerStatsScope.NOOB;
-            } else if (i < 5) {
-                playerStatsScope = PlayerStatsScope.KOX;
-            } else {
-                playerStatsScope = PlayerStatsScope.PRO;
-            }
-            PlayerBuilder playerBuilder = new PlayerBuilderPro();
-            playerBuilder.name(names[i])
-                    .playerStatsScope();
-            Player player = playerBuilder.build();
-            allPlayers.add(player);
+            allPlayers.add(createPlayerByIter(i));
         }
+    }
+
+    private Player createPlayerByIter(int i) {
+        PlayerBuilder playerBuilder;
+        if (i < 3) {
+            playerBuilder = new PlayerBuilderNoob();
+        } else if (i < 5) {
+            playerBuilder = new PlayerBuilderKox();
+        } else {
+            playerBuilder = new PlayerBuilderNoob();
+        }
+        playerBuilder.name(names[i])
+                .playerStatsScope();
+        Player player = playerBuilder.build();
+        return player;
     }
 
     public List<Player> getPlayers(int numberOfPlayers) {
