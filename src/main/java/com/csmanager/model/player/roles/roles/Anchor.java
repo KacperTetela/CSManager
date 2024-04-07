@@ -1,8 +1,8 @@
-package com.csmanager.model.roles.roles;
+package com.csmanager.model.player.roles.roles;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.roles.roleType.RoleType;
+import com.csmanager.model.player.roles.roleType.RoleType;
 
 public class Anchor extends Role{
     public Anchor(Player player) {
@@ -19,7 +19,7 @@ public class Anchor extends Role{
         return 0;
     }
     //Match.java
-    //Chance.java
+    //ChanceService.java
     //Player.java (potential)
     //
 

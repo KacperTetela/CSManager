@@ -23,16 +23,8 @@ public class PlayerFactory {
     }
 
     private Player createPlayerByIter(int i) {
-        PlayerBuilder playerBuilder;
-        if (i < 3) {
-            playerBuilder = new PlayerBuilderNoob();
-        } else if (i < 5) {
-            playerBuilder = new PlayerBuilderKox();
-        } else {
-            playerBuilder = new PlayerBuilderNoob();
-        }
-        playerBuilder.name(names[i])
-                .playerStatsScope();
+        PlayerBuilder playerBuilder = new PlayerBuilder();
+        playerBuilder.name(names[i]);
         Player player = playerBuilder.build();
         return player;
     }

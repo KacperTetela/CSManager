@@ -2,9 +2,9 @@ package com.csmanager.model.player.builder;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
-import com.csmanager.model.roles.roleType.RoleType;
-import com.csmanager.model.roles.roleType.Side;
-import com.csmanager.model.roles.roles.*;
+import com.csmanager.model.player.roles.roleType.RoleType;
+import com.csmanager.model.player.roles.roleType.Side;
+import com.csmanager.model.player.roles.roles.*;
 import com.csmanager.utils.Utils;
 
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class Player {
     private int age;
     private int daysInTeams;
     private double consistency;
-    private Roles roles;
+    private RolesBoth rolesBoth;
     /**
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
@@ -25,15 +25,17 @@ public class Player {
     private Map<RoleType, Double> rolePoints = new HashMap<>();
     private boolean busy;
 
-    Player(String name, PlayerStatsScope playerStatsScope) {
+    Player(String name) {
         this.name = name;
-        RoleType.getPotentialRoles().forEach(role -> {
-            potentialPoints.put(role, playerStatsScope.rollPotential());
-            rolePoints.put(role, playerStatsScope.rollStats());
-        });
-        //Warning
-        RoleType.getNonPotentialRoles().forEach(role -> {
-            rolePoints.put(role, playerStatsScope.rollStats());
+        RoleType.getRoles().forEach(roleType -> {
+            PlayerRolePointsScope playerRolePointsScope;
+            if (Math.random() > 0.5) {
+                playerRolePointsScope = PlayerRolePointsScope.HIGH;
+            } else {
+                playerRolePointsScope = PlayerRolePointsScope.LOW;
+            }
+            potentialPoints.put(roleType, playerRolePointsScope.rollPotential());
+            rolePoints.put(roleType, playerRolePointsScope.rollStats());
         });
 
         consistency = 0.5 + Math.random() * 0.5;
@@ -89,7 +91,7 @@ public class Player {
     }
 
     public void setRoles(RoleType ctRole, RoleType tRole) {
-        roles = new Roles(createRole(ctRole), createRole(tRole));
+        rolesBoth = new RolesBoth(createRole(ctRole), createRole(tRole));
     }
 
     private Role createRole(RoleType roleType) {
@@ -104,17 +106,17 @@ public class Player {
 
     public double getSkill(Match match) {
         //zwraca nam skila danego gracza w danym meczu w danym etapie gry
-        System.out.println(this.toString() + roles.getSkill(match));
-        return roles.getSkill(match);
+        System.out.println(this.toString() + rolesBoth.getSkill(match));
+        return rolesBoth.getSkill(match);
     }
 
     public void increaseSkill(Match match) {
-        //oddelegowane do roles
+        //oddelegowane do rolesBoth
     }
 
     public void trainPlayer() {
-        Role TRoleType = roles.getRoleByMatchStage(MatchStage.T);
-        Role CtRoleType = roles.getRoleByMatchStage(MatchStage.T);
+        Role TRoleType = rolesBoth.getRoleByMatchStage(MatchStage.T);
+        Role CtRoleType = rolesBoth.getRoleByMatchStage(MatchStage.T);
 /*        addPoints(TRoleType);
         addPoints(CtRoleType);*/
     }

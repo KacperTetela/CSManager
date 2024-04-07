@@ -1,7 +1,7 @@
-package com.csmanager.model.roster;
+package com.csmanager.model.player.performance;
 
 import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.roles.roleType.RoleType;
+import com.csmanager.model.player.roles.roleType.RoleType;
 
 /**
  * The method is intended to provide the opportunity to significantly improve skill points for one match if the
@@ -15,7 +15,7 @@ import com.csmanager.model.roles.roleType.RoleType;
  * // 0.1 - 0.2 // kox
  * // 0.05 - 0.1 // noob
  */
-public class Chance {
+public class ChanceService {
     public static boolean isRequired(RoleType roleType, Player player) {
         if (player.getPotentialPoints().get(roleType) == null) {
             return false;

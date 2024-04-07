@@ -84,7 +84,7 @@ public class Match {
 
 /*
 Gracz - 2 role.
-Roles - ma te dwie role i zarzadza dostepami do nich i przyjmuje mecz
+RolesBoth - ma te dwie role i zarzadza dostepami do nich i przyjmuje mecz
 
 * rozegraj 1 połowę
 * rozegraj 2 połowę

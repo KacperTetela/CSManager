@@ -1,13 +1,13 @@
-package com.csmanager.model.roles.roles;
+package com.csmanager.model.player.roles.roles;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
 
-public class Roles {
+public class RolesBoth {
     private Role CTRole;
     private Role TRole;
 
-    public Roles(Role CTRole, Role TRole) {
+    public RolesBoth(Role CTRole, Role TRole) {
         this.CTRole = CTRole;
         this.TRole = TRole;
     }

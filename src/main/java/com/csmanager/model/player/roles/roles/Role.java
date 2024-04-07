@@ -1,4 +1,4 @@
-package com.csmanager.model.roles.roles;
+package com.csmanager.model.player.roles.roles;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.builder.Player;
