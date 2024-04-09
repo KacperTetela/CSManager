@@ -11,7 +11,7 @@ public class Awper extends Role {
 
     @Override
     double calculateSkill(Match match) {
-        return player.getRolePoints().get(RoleType.AWPER);
+        return player.getRolePoints(RoleType.AWPER);
     }
 
     @Override

@@ -16,22 +16,15 @@ import com.csmanager.model.player.roles.roleType.RoleType;
  * // 0.05 - 0.1 // noob
  */
 public class ChanceService {
-    public static boolean isRequired(RoleType roleType, Player player) {
-        if (player.getPotentialPoints().get(roleType) == null) {
-            return false;
-        }
-        return true;
-    }
-
     public static double calculate(RoleType roleType, Player player) {
         double isItTime = Math.random();
-        if (isItTime <= player.getPotentialPoints().get(roleType)) {
+        if (isItTime <= player.getPotentialPoints(roleType)) {
             System.out.println("Dobrze idzie!  " + player.getName());
-            if (player.getRolePoints().get(roleType) < 0.75)
+            if (player.getRolePoints(roleType) < 0.75)
                 return 0.25;
             else
-                return ((player.getRolePoints().get(roleType) + 0.25) % 1);
+                return ((player.getRolePoints(roleType) + 0.25) % 1);
         }
-        return player.getRolePoints().get(roleType);
+        return player.getRolePoints(roleType);
     }
 }

@@ -11,7 +11,7 @@ public class Rifler extends Role {
 
     @Override
     double calculateSkill(Match match) {
-        return player.getRolePoints().get(RoleType.RIFLER);
+        return player.getRolePoints(RoleType.RIFLER);
     }
 
     @Override

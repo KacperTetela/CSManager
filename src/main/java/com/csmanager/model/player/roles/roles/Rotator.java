@@ -11,7 +11,7 @@ public class Rotator extends Role {
 
     @Override
     double calculateSkill(Match match) {
-        return player.getRolePoints().get(RoleType.ROTATOR);
+        return player.getRolePoints(RoleType.ROTATOR);
     }
 
     @Override

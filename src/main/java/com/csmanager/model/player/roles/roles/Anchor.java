@@ -11,7 +11,7 @@ public class Anchor extends Role{
 
     @Override
     double calculateSkill(Match match) {
-        return player.getRolePoints().get(RoleType.ANCHOR);
+        return player.getRolePoints(RoleType.ANCHOR);
     }
 
     @Override

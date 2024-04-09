@@ -1,0 +1,3 @@
+GameAnalysis - It allows you to slightly increase players' statistics
+Bootcamp - It allows you to temporarily significantly increase players' statistics
+PsychologistSession -It allows you to temporarily increase the potential of players

@@ -17,11 +17,11 @@ public class GameService {
     public void startGame() {
         this.myTeam = createTeam();
         do {
-            //wydaj zarobione pieniądze
             prepareLineup();
             Match match = prepareMatch();
             match.playMatch();
             //branie pod uwagę progresssu
+            //wydaj zarobione pieniądze
         } while (true); // warunek konca
     }
 

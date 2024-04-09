@@ -11,7 +11,7 @@ public class Lurker extends Role{
 
     @Override
     double calculateSkill(Match match) {
-        return player.getRolePoints().get(RoleType.LURKER);
+        return player.getRolePoints(RoleType.LURKER);
     }
 
     @Override
