@@ -85,7 +85,7 @@ Player createPlayer()
 
 
 
-* startowi - słabi, nie są znani i nie płacimy za nich (ich staty beda * 0.7
-* dokupywani - lepsi, coś kosztują
+* startowi - słabi, nie są znani i nie płacimy za nich, mozemy ich expic, sa to standardowy playerzy
+* semi - dokupywani - lepsi, coś kosztują, sa lekko lepsi od tych startowych w celu nadania dynamiki gry
 * pro gracze - najlepski, bardzo drodzy, ręcznie wprowadzone staty -> json
 * */
