@@ -13,6 +13,9 @@ public class RoleStats {
         this.rolePoints = rolePoints;
     }
 
+    public RoleStats() {
+    }
+
     public RoleType getRoleType() {
         return roleType;
     }
@@ -27,5 +30,14 @@ public class RoleStats {
 
     public void increaseByPotential() {
         rolePoints = rolePoints + (potentialPoints * 0.1);
+    }
+
+    @Override
+    public String toString() {
+        return "RoleStats{" +
+                "roleType=" + roleType +
+                ", potentialPoints=" + potentialPoints +
+                ", rolePoints=" + rolePoints +
+                '}';
     }
 }

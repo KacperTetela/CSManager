@@ -2,21 +2,21 @@ package com.csmanager.model.player.factory;
 
 import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.player.builder.PlayerBuilder;
+import com.csmanager.utils.JsonReader2;
 
-public class ProCreatingStrategy implements PlayerCreatingStrategy{
-    private String[] names = {"Neo", "PashaBiceps", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz",
-            "isak", "Styko", "device", "Magisk", "Xyp9x"};
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ProCreatingStrategy implements PlayerCreatingStrategy {
+    private Queue<Player> players = new LinkedList<>();
+
+    public ProCreatingStrategy() {
+        players.addAll(JsonReader2.read());
+    }
 
     @Override
     public Player createPlayer() {
-        return null;
-    }
-
-    private Player createPlayerByIter(int i) {
-        PlayerBuilder playerBuilder = new PlayerBuilder();
-        playerBuilder.name(names[i]);
-        Player player = playerBuilder.build();
-        return player;
+        return players.remove();
     }
 
 }

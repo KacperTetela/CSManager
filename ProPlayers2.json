@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Player1",
+    "statsManager": {
+      "allRoleStats": [
+        {
+          "roleType": "ANCHOR",
+          "potentialPoints": 0.13726208459929257,
+          "rolePoints": 0.3387688467517408
+        },
+        {
+          "roleType": "AWPER",
+          "potentialPoints": 0.24072810824957294,
+          "rolePoints": 0.4445173085884235
+        },
+        {
+          "roleType": "ROTATOR",
+          "potentialPoints": 0.24911487653478814,
+          "rolePoints": 0.34250490325245425
+        },
+        {
+          "roleType": "RIFLER",
+          "potentialPoints": 0.21166370057962122,
+          "rolePoints": 0.35982909673251817
+        },
+        {
+          "roleType": "LURKER",
+          "potentialPoints": 0.10718406420501854,
+          "rolePoints": 0.4167009528169556
+        }
+      ]
+    },
+    "busy": false
+  },
+  {
+    "name": "Player2",
+    "statsManager": {
+      "allRoleStats": [
+        {
+          "roleType": "ANCHOR",
+          "potentialPoints": 0.13726208459929257,
+          "rolePoints": 0.3387688467517408
+        },
+        {
+          "roleType": "AWPER",
+          "potentialPoints": 0.24072810824957294,
+          "rolePoints": 0.4445173085884235
+        },
+        {
+          "roleType": "ROTATOR",
+          "potentialPoints": 0.24911487653478814,
+          "rolePoints": 0.34250490325245425
+        },
+        {
+          "roleType": "RIFLER",
+          "potentialPoints": 0.21166370057962122,
+          "rolePoints": 0.35982909673251817
+        },
+        {
+          "roleType": "LURKER",
+          "potentialPoints": 0.10718406420501854,
+          "rolePoints": 0.4167009528169556
+        }
+      ]
+    },
+    "busy": false
+  }
+]

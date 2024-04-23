@@ -68,6 +68,7 @@ public class JSONReader {
                 roleTypeValues[3][1] = ((double) rolePointsRIFLER) / 10;
                 roleTypeValues[4][0] = ((double) potentialPointsLURKER) / 10;
                 roleTypeValues[4][1] = ((double) rolePointsLURKER) / 10;
+
                 PrefabricatedPlayerBuilder prefabricatedPlayerBuilder = new PrefabricatedPlayerBuilder();
                 prefabricatedPlayerBuilder.name(name)
                         .roleTypeValues(roleTypeValues);
