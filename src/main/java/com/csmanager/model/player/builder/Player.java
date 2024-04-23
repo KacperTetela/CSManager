@@ -1,8 +1,8 @@
 package com.csmanager.model.player.builder;
 
-import com.csmanager.controller.GameService;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
+import com.csmanager.model.player.performance.Difficulty;
 import com.csmanager.model.player.roles.roleType.RoleType;
 import com.csmanager.model.player.roles.roleType.Side;
 import com.csmanager.model.player.roles.roles.*;
@@ -19,10 +19,10 @@ public class Player {
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
      */
-    private final StatsManager statsManager;
+    private  StatsManager statsManager;
     private boolean busy;
 
-    Player(String name) {
+    public Player(String name) {
         this.name = name;
         statsManager = new StatsManager();
         RoleType.getRoles().forEach(roleType -> {
@@ -33,7 +33,7 @@ public class Player {
                 playerRolePointsScope = PlayerRolePointsScope.LOW;
             }
             statsManager.add(new RoleStats(roleType, playerRolePointsScope.rollPotential(),
-                    playerRolePointsScope.rollStats(1)));
+                    playerRolePointsScope.rollStats(Difficulty.getInstance().getValue())));
         });
 
         consistency = 0.5 + Math.random() * 0.5;
@@ -53,6 +53,9 @@ public class Player {
         consistency = 0.5 + Math.random() * 0.5;
         daysInTeams = (int) (Math.random() * 1000);
         age = (int) (Math.random() * 20 + 15);
+    }
+
+    public Player() {
     }
 
     public boolean isBusy() {
@@ -134,5 +137,7 @@ public class Player {
 /*        addPoints(TRoleType);
         addPoints(CtRoleType);*/
     }
+
+
 
 }

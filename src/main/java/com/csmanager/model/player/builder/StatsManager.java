@@ -6,15 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatsManager {
-    private final List<RoleStats> allRoleStats = new ArrayList<>();
+    private  List<RoleStats> allRoleStats = new ArrayList<>();
 
-    public void add(RoleStats roleStats) {
-        allRoleStats.add(roleStats);
-    }
 
-    public List<RoleStats> getAllRoleStats() {
-        return allRoleStats;
-    }
 
     public void increaseSkillByPotential(RoleType roleType) {
         RoleStats stats = getStatsByType(roleType);
@@ -39,5 +33,14 @@ public class StatsManager {
         }
         throw new RuntimeException("Stats not found");
     }
+
+    public void add(RoleStats roleStats) {
+        allRoleStats.add(roleStats);
+    }
+
+    public List<RoleStats> getAllRoleStats() {
+        return allRoleStats;
+    }
+
 
 }
