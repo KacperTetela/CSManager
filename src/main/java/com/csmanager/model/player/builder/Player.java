@@ -1,11 +1,11 @@
 package com.csmanager.model.player.builder;
 
+import com.csmanager.controller.GameService;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
 import com.csmanager.model.player.roles.roleType.RoleType;
 import com.csmanager.model.player.roles.roleType.Side;
 import com.csmanager.model.player.roles.roles.*;
-import com.csmanager.utils.Utils;
 
 import java.util.*;
 
@@ -19,7 +19,7 @@ public class Player {
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
      */
-    private StatsManager statsManager;
+    private final StatsManager statsManager;
     private boolean busy;
 
     Player(String name) {
@@ -33,7 +33,21 @@ public class Player {
                 playerRolePointsScope = PlayerRolePointsScope.LOW;
             }
             statsManager.add(new RoleStats(roleType, playerRolePointsScope.rollPotential(),
-                    playerRolePointsScope.rollStats()));
+                    playerRolePointsScope.rollStats(1)));
+        });
+
+        consistency = 0.5 + Math.random() * 0.5;
+        daysInTeams = (int) (Math.random() * 1000);
+        age = (int) (Math.random() * 20 + 15);
+    }
+
+    Player(String name, double[][] roleTypeValues) {
+        this.name = name;
+        statsManager = new StatsManager();
+        RoleType.getRoles().forEach(roleType -> {
+            int incrementValue = 0;
+            statsManager.add(new RoleStats(roleType, roleTypeValues[incrementValue][0], roleTypeValues[incrementValue][1]));
+            incrementValue++;
         });
 
         consistency = 0.5 + Math.random() * 0.5;
@@ -56,7 +70,7 @@ public class Player {
     @Override
     public String toString() {
         return "\n" + name +
-                "\nstats=" + (statsManager.getAllroleStats());
+                "\nstats=" + (statsManager.getAllRoleStats());
     }
 
     @Override
@@ -107,7 +121,7 @@ public class Player {
     }
 
     public double getPotentialPoints(RoleType roleType) {
-        return statsManager.getPotenitalPoints(roleType);
+        return statsManager.getPotentialPoints(roleType);
     }
 
     public void increaseSkill(Match match) {

@@ -1,7 +1,7 @@
 package com.csmanager.model.player.builder;
 
 public class PlayerBuilder {
-    protected String name;
+    private String name;
 
     public PlayerBuilder name(String name) {
         this.name = name;

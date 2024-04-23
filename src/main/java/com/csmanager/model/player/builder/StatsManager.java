@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatsManager {
-    private List<RoleStats> allroleStats = new ArrayList<>();
+    private final List<RoleStats> allRoleStats = new ArrayList<>();
 
     public void add(RoleStats roleStats) {
-        allroleStats.add(roleStats);
+        allRoleStats.add(roleStats);
     }
 
-    public List<RoleStats> getAllroleStats() {
-        return allroleStats;
+    public List<RoleStats> getAllRoleStats() {
+        return allRoleStats;
     }
 
     public void increaseSkillByPotential(RoleType roleType) {
@@ -26,15 +26,15 @@ public class StatsManager {
         return stats.getRolePoints();
     }
 
-    double getPotenitalPoints(RoleType roleType) {
+    double getPotentialPoints(RoleType roleType) {
         RoleStats stats = getStatsByType(roleType);
         return stats.getPotentialPoints();
     }
 
     private RoleStats getStatsByType(RoleType roleType) {
-        for (RoleStats allroleStat : allroleStats) {
-            if (allroleStat.getRoleType().equals(roleType)) {
-                return allroleStat;
+        for (RoleStats allRoleStat : allRoleStats) {
+            if (allRoleStat.getRoleType().equals(roleType)) {
+                return allRoleStat;
             }
         }
         throw new RuntimeException("Stats not found");

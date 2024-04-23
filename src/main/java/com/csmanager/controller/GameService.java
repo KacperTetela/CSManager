@@ -1,17 +1,24 @@
 package com.csmanager.controller;
 
+import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.factory.PlayerFactory;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
 import com.csmanager.model.team.Team;
+import com.csmanager.utils.JSONReader;
 import com.csmanager.utils.Utils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameService {
     private Team myTeam;
     private Roster playerRoster;
+    private final Map<Player, Boolean> prefabricatedPlayers = new HashMap<>();
 
     public GameService() {
+        GameService.GameDifficulty gameDifficulty = new GameDifficulty();
     }
 
     public void startGame() {
@@ -65,6 +72,25 @@ public class GameService {
         AutoRosterCreator autoRosterCreator = new AutoRosterCreator();
         Roster computerRoster = autoRosterCreator.getRoster();
         return new Match(myTeam, playerRoster, computerRoster);
+    }
+
+    private void prefabricatedPlayersSet() {
+        JSONReader.read(prefabricatedPlayers);
+    }
+
+    public class GameDifficulty {
+        private double difficultyPoints = 1.0;
+
+        public GameDifficulty() {
+        }
+
+        public double getDifficultyPoints() {
+            return difficultyPoints;
+        }
+
+        public void IncreaseDifficultyPoints() {
+            difficultyPoints += 0.05;
+        }
     }
 
 }
