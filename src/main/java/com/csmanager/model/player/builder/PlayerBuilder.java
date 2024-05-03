@@ -1,5 +1,7 @@
 package com.csmanager.model.player.builder;
 
+import com.csmanager.model.player.performance.Difficulty;
+
 public class PlayerBuilder {
     private String name;
 
@@ -9,6 +11,6 @@ public class PlayerBuilder {
     }
 
     public Player build() {
-        return new Player(name);
+        return new Player(name, Difficulty.getInstance().getValue());
     }
 }

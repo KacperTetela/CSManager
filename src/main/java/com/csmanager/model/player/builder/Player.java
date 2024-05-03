@@ -22,7 +22,7 @@ public class Player {
     private  StatsManager statsManager;
     private boolean busy;
 
-    public Player(String name) {
+    public Player(String name, double difficulty) {
         this.name = name;
         statsManager = new StatsManager();
         RoleType.getRoles().forEach(roleType -> {
@@ -33,7 +33,7 @@ public class Player {
                 playerRolePointsScope = PlayerRolePointsScope.LOW;
             }
             statsManager.add(new RoleStats(roleType, playerRolePointsScope.rollPotential(),
-                    playerRolePointsScope.rollStats(Difficulty.getInstance().getValue())));
+                    playerRolePointsScope.rollStats(difficulty)));
         });
 
         consistency = 0.5 + Math.random() * 0.5;

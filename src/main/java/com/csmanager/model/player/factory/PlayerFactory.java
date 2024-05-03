@@ -66,7 +66,7 @@ public class PlayerFactory {
       playerCreatingStrategy =  switch (playerSkill) {
            case  "pro" -> new ProCreatingStrategy();
            case "semi" -> new SemiCreatingStrategy();
-           case "starter" -> new StarterCreatingStrategy();
+           case "starter" -> new AboveCreatingStrategy();
           default -> throw new RuntimeException("unidentified strategy");
         };
     }
