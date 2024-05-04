@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ProCreatingStrategy implements PlayerCreatingStrategy {
-    private Queue<Player> players = new LinkedList<>();
+    private final Queue<Player> players = new LinkedList<>();
 
     public ProCreatingStrategy() {
         players.addAll(JsonReader2.read());
@@ -18,5 +18,4 @@ public class ProCreatingStrategy implements PlayerCreatingStrategy {
     public Player createPlayer() {
         return players.remove();
     }
-
 }

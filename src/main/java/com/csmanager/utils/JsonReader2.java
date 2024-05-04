@@ -32,6 +32,5 @@ public class JsonReader2 {
             System.out.println("Brak pliku");
             return new ArrayList<>();
         }
-
     }
 }

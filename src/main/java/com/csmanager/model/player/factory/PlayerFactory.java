@@ -65,7 +65,7 @@ public class PlayerFactory {
     private void setStrategy(String playerSkill){
       playerCreatingStrategy =  switch (playerSkill) {
            case  "pro" -> new ProCreatingStrategy();
-           case "semi" -> new SemiCreatingStrategy();
+           case "semi" -> new DefaultCreatingStrategy();
            case "starter" -> new AboveCreatingStrategy();
           default -> throw new RuntimeException("unidentified strategy");
         };
