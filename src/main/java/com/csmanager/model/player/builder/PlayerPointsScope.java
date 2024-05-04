@@ -1,6 +1,6 @@
 package com.csmanager.model.player.builder;
 
-public enum PlayerRolePointsScope {
+public enum PlayerPointsScope {
     HIGH(0.2, 0.25),
     LOW(0.1, 0.15);
 
@@ -9,7 +9,7 @@ public enum PlayerRolePointsScope {
     private double potentialPoints;
     private double statsPoints;
 
-    PlayerRolePointsScope(double minPotentialRange, double maxPotentialRange) {
+    PlayerPointsScope(double minPotentialRange, double maxPotentialRange) {
         this.minPotentialRange = minPotentialRange;
         this.maxPotentialRange = maxPotentialRange;
     }

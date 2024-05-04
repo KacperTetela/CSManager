@@ -2,7 +2,6 @@ package com.csmanager.model.player.builder;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
-import com.csmanager.model.player.performance.Difficulty;
 import com.csmanager.model.player.roles.roleType.RoleType;
 import com.csmanager.model.player.roles.roleType.Side;
 import com.csmanager.model.player.roles.roles.*;
@@ -19,21 +18,21 @@ public class Player {
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
      */
-    private  StatsManager statsManager;
+    private StatsManager statsManager;
     private boolean busy;
 
     Player(String name, double difficulty) {
         this.name = name;
         statsManager = new StatsManager();
         RoleType.getRoles().forEach(roleType -> {
-            PlayerRolePointsScope playerRolePointsScope;
+            PlayerPointsScope playerPointsScope;
             if (Math.random() > 0.5) {
-                playerRolePointsScope = PlayerRolePointsScope.HIGH;
+                playerPointsScope = PlayerPointsScope.HIGH;
             } else {
-                playerRolePointsScope = PlayerRolePointsScope.LOW;
+                playerPointsScope = PlayerPointsScope.LOW;
             }
-            statsManager.add(new RoleStats(roleType, playerRolePointsScope.rollPotential(),
-                    playerRolePointsScope.rollStats(difficulty)));
+            statsManager.add(new RoleStats(roleType, playerPointsScope.rollPotential(),
+                    playerPointsScope.rollStats(difficulty)));
         });
 
         consistency = 0.5 + Math.random() * 0.5;
@@ -41,7 +40,7 @@ public class Player {
         age = (int) (Math.random() * 20 + 15);
     }
 
-    Player(String name, double[][] roleTypeValues) {
+    public Player(String name, double[][] roleTypeValues) {
         this.name = name;
         statsManager = new StatsManager();
         RoleType.getRoles().forEach(roleType -> {
@@ -53,9 +52,6 @@ public class Player {
         consistency = 0.5 + Math.random() * 0.5;
         daysInTeams = (int) (Math.random() * 1000);
         age = (int) (Math.random() * 20 + 15);
-    }
-
-    public Player() {
     }
 
     public boolean isBusy() {

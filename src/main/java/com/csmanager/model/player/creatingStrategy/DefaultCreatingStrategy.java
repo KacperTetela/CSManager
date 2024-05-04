@@ -1,4 +1,4 @@
-package com.csmanager.model.player.factory;
+package com.csmanager.model.player.creatingStrategy;
 
 import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.player.builder.PlayerBuilder;
