@@ -23,7 +23,7 @@ public class ProCreatingStrategy implements PlayerCreatingStrategy {
     public static void main(String[] args) {
         ProCreatingStrategy proCreatingStrategy = new ProCreatingStrategy();
         System.out.println(proCreatingStrategy.createPlayer());
-        Player player = new Player();
+        //Player player = new Player();
     }
 
 }
