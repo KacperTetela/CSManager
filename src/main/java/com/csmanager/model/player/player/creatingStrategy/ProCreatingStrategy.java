@@ -17,12 +17,4 @@ public class ProCreatingStrategy implements PlayerCreatingStrategy {
     public Player createPlayer() {
         return players.remove();
     }
-
-
-    public static void main(String[] args) {
-        ProCreatingStrategy proCreatingStrategy = new ProCreatingStrategy();
-        Player player = proCreatingStrategy.createPlayer();
-        System.out.println(player.toString());
-    }
-
 }

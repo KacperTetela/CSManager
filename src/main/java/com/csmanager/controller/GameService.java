@@ -34,7 +34,7 @@ public class GameService {
      */
     public Team createTeam() {
         CreatingStrategyService creatingStrategyService = new CreatingStrategyService();
-        return new Team(Utils.askAboutString("Please name your team"), creatingStrategyService.getPlayers(6));
+        return new Team(Utils.askAboutString("Please name your team"), creatingStrategyService.getStarterPlayers());
     }
 
     /**
