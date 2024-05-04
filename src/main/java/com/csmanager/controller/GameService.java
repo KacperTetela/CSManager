@@ -1,16 +1,11 @@
 package com.csmanager.controller;
 
-import com.csmanager.model.player.builder.Player;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.player.factory.PlayerFactory;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
 import com.csmanager.model.team.Team;
-import com.csmanager.utils.JSONReader;
-import com.csmanager.utils.JsonReader2;
 import com.csmanager.utils.Utils;
-
-import java.util.*;
 
 public class GameService {
     private Team myTeam;

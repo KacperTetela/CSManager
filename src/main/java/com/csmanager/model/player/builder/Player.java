@@ -22,7 +22,7 @@ public class Player {
     private  StatsManager statsManager;
     private boolean busy;
 
-    public Player(String name, double difficulty) {
+    Player(String name, double difficulty) {
         this.name = name;
         statsManager = new StatsManager();
         RoleType.getRoles().forEach(roleType -> {
