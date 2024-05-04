@@ -1,6 +1,6 @@
 package com.csmanager.model.roster.rosterLock;
 
-import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.player.Player;
 import com.csmanager.model.roster.Roster;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;

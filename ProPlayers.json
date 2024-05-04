@@ -1,6 +1,6 @@
 [
   {
-    "name": "Player1",
+    "name": "Snax",
     "statsManager": {
       "allRoleStats": [
         {
@@ -30,10 +30,11 @@
         }
       ]
     },
-    "busy": false
+    "busy": false,
+    "age": 22
   },
   {
-    "name": "Player2",
+    "name": "byali",
     "statsManager": {
       "allRoleStats": [
         {
@@ -63,6 +64,7 @@
         }
       ]
     },
-    "busy": false
+    "busy": false,
+    "age": 21
   }
 ]

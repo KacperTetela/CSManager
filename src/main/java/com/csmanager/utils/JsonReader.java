@@ -1,6 +1,6 @@
 package com.csmanager.utils;
 
-import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.player.Player;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -17,6 +17,7 @@ public class JsonReader {
             return Arrays.stream(players).toList();
         } catch (IOException e) {
             System.out.println("Json file not found");
+            System.out.println(e.getMessage());
             return new ArrayList<>();
         }
     }

@@ -1,7 +1,6 @@
-package com.csmanager.model.player.creatingStrategy;
+package com.csmanager.model.player.player.creatingStrategy;
 
-import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.player.performance.Difficulty;
+import com.csmanager.model.player.player.Player;
 import com.csmanager.utils.JsonReader;
 
 import java.util.LinkedList;
@@ -22,8 +21,8 @@ public class ProCreatingStrategy implements PlayerCreatingStrategy {
 
     public static void main(String[] args) {
         ProCreatingStrategy proCreatingStrategy = new ProCreatingStrategy();
-        System.out.println(proCreatingStrategy.createPlayer());
-        //Player player = new Player();
+        Player player = proCreatingStrategy.createPlayer();
+        System.out.println(player.toString());
     }
 
 }

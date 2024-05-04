@@ -1,7 +1,7 @@
 package com.csmanager.model.roster;
 
 import com.csmanager.model.match.Match;
-import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;

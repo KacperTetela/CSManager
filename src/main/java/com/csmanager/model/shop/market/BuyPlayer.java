@@ -1,7 +1,7 @@
 package com.csmanager.model.shop.market;
 
-import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.player.builder.PlayerBuilder;
+import com.csmanager.model.player.player.Player;
+import com.csmanager.model.player.player.PlayerBuilder;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
 import com.github.javafaker.Faker;

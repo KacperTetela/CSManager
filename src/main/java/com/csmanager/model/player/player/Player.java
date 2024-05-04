@@ -1,4 +1,4 @@
-package com.csmanager.model.player.builder;
+package com.csmanager.model.player.player;
 
 import com.csmanager.model.match.Match;
 import com.csmanager.model.match.MatchStage;
@@ -40,18 +40,7 @@ public class Player {
         age = (int) (Math.random() * 20 + 15);
     }
 
-    public Player(String name, double[][] roleTypeValues) {
-        this.name = name;
-        statsManager = new StatsManager();
-        RoleType.getRoles().forEach(roleType -> {
-            int incrementValue = 0;
-            statsManager.add(new RoleStats(roleType, roleTypeValues[incrementValue][0], roleTypeValues[incrementValue][1]));
-            incrementValue++;
-        });
-
-        consistency = 0.5 + Math.random() * 0.5;
-        daysInTeams = (int) (Math.random() * 1000);
-        age = (int) (Math.random() * 20 + 15);
+    public Player() {
     }
 
     public boolean isBusy() {
@@ -62,6 +51,15 @@ public class Player {
         this.busy = busy;
     }
 
+    //getAge and setAge must be initialized for the Jackson library to function properly.
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public StatsManager getStatsManager() {
         return statsManager;
     }
@@ -69,6 +67,7 @@ public class Player {
     @Override
     public String toString() {
         return "\n" + name +
+                "\n" + age +
                 "\nstats=" + (statsManager.getAllRoleStats());
     }
 

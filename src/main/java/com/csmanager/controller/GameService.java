@@ -1,8 +1,8 @@
 package com.csmanager.controller;
 
+import com.csmanager.model.player.player.creatingStrategy.CreatingStrategyService;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
-import com.csmanager.model.player.creatingStrategy.PlayerFactory;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
@@ -33,8 +33,8 @@ public class GameService {
      * Zmienic tak zeby bez wzgledu czy wpiszemy BYALI czy byali z malej bylo traktowane jako to samo
      */
     public Team createTeam() {
-        PlayerFactory playerFactory = new PlayerFactory();
-        return new Team(Utils.askAboutString("Please name your team"), playerFactory.getPlayers(6));
+        CreatingStrategyService creatingStrategyService = new CreatingStrategyService();
+        return new Team(Utils.askAboutString("Please name your team"), creatingStrategyService.getPlayers(6));
     }
 
     /**

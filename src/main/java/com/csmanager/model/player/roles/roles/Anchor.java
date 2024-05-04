@@ -1,7 +1,7 @@
 package com.csmanager.model.player.roles.roles;
 
 import com.csmanager.model.match.Match;
-import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.player.Player;
 import com.csmanager.model.player.roles.roleType.RoleType;
 
 public class Anchor extends Role{

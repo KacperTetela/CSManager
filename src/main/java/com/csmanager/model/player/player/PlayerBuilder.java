@@ -1,4 +1,4 @@
-package com.csmanager.model.player.builder;
+package com.csmanager.model.player.player;
 
 public class PlayerBuilder {
     private String name;

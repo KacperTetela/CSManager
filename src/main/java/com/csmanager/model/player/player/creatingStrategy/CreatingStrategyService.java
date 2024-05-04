@@ -1,7 +1,7 @@
-package com.csmanager.model.player.creatingStrategy;
+package com.csmanager.model.player.player.creatingStrategy;
 
-import com.csmanager.model.player.builder.Player;
-import com.csmanager.model.player.builder.*;
+import com.csmanager.model.player.player.Player;
+import com.csmanager.model.player.player.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.stream.IntStream;
 
-public class PlayerFactory {
+public class CreatingStrategyService {
 
     private String[] names = {"Neo", "PashaBiceps", "Snax", "dupreeh", "TaZ", "byali", "Gla1ve", "Zywoo", "Keoz", "isak", "Styko", "device", "Magisk", "Xyp9x"};
     private PlayerCreatingStrategy playerCreatingStrategy;
@@ -63,11 +63,11 @@ public class PlayerFactory {
         return players;
     }
 
-    private void setStrategy(String playerSkill){
-      playerCreatingStrategy =  switch (playerSkill) {
+    private void setStrategy(String creatingStrategy){
+      playerCreatingStrategy =  switch (creatingStrategy) {
            case  "pro" -> new ProCreatingStrategy();
-           case "semi" -> new DefaultCreatingStrategy();
-           case "starter" -> new AboveCreatingStrategy();
+           case "above" -> new DefaultCreatingStrategy();
+           case "default" -> new AboveCreatingStrategy();
           default -> throw new RuntimeException("unidentified strategy");
         };
     }
@@ -77,7 +77,7 @@ public class PlayerFactory {
 }
 
 /*
-PlayerFactory:
+CreatingStrategyService:
 List<Player> getPlayersToBuy() : zawsze 10 ->  Później mieszanka mid/pro
 List<Player> getStarterPlayers() : 6 najsłabszych
 

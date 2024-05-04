@@ -1,4 +1,4 @@
-package com.csmanager.model.player.builder;
+package com.csmanager.model.player.player;
 
 public enum PlayerPointsScope {
     HIGH(0.2, 0.25),

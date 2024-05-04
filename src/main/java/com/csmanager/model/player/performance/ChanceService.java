@@ -1,6 +1,6 @@
 package com.csmanager.model.player.performance;
 
-import com.csmanager.model.player.builder.Player;
+import com.csmanager.model.player.player.Player;
 import com.csmanager.model.player.roles.roleType.RoleType;
 
 /**
