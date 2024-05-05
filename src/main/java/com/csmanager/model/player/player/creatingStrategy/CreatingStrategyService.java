@@ -11,8 +11,8 @@ public class CreatingStrategyService {
     private void setStrategy(String creatingStrategy) {
         playerCreatingStrategy = switch (creatingStrategy) {
             case "pro" -> new ProCreatingStrategy();
-            case "above" -> new DefaultCreatingStrategy();
-            case "default" -> new AboveCreatingStrategy();
+            case "above" -> new AboveCreatingStrategy();
+            case "default" -> new DefaultCreatingStrategy();
             default -> throw new RuntimeException("unidentified strategy");
         };
     }

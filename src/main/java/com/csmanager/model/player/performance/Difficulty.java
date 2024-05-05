@@ -19,6 +19,14 @@ public class Difficulty {
     public void increase() {
         if (difficultyPoints < maxDifficultyPoints) {
             difficultyPoints += 0.05;
+            System.out.println("DifficultyPoints are now " + difficultyPoints);
+        }
+    }
+
+    public void reduce() {
+        if (difficultyPoints > (maxDifficultyPoints - 1)) {
+            difficultyPoints -= 0.05;
+            System.out.println("DifficultyPoints are now " + difficultyPoints);
         }
     }
 }

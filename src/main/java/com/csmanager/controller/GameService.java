@@ -1,5 +1,6 @@
 package com.csmanager.controller;
 
+import com.csmanager.model.player.performance.Difficulty;
 import com.csmanager.model.player.player.creatingStrategy.CreatingStrategyService;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;

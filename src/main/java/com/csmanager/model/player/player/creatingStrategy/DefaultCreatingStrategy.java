@@ -10,7 +10,7 @@ public class DefaultCreatingStrategy implements PlayerCreatingStrategy {
 
     @Override
     public Player createPlayer() {
-        PlayerBuilder playerBuilder = new PlayerBuilder().name(faker.name().name())
+        PlayerBuilder playerBuilder = new PlayerBuilder().name(faker.name().username())
                 .difficulty(Difficulty.getInstance().getValue());
         return playerBuilder.build();
     }

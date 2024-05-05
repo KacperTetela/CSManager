@@ -1,5 +1,6 @@
 package com.csmanager.model.match;
 
+import com.csmanager.model.player.performance.Difficulty;
 import com.csmanager.model.roster.Roster;
 import com.csmanager.model.team.Team;
 
@@ -44,10 +45,10 @@ public class Match {
         }
 
         if (getMatchStage() == MatchStage.ENDED) {
-            //
+            //TODO
         }
-        System.out.println(managerRosterSkill);
-        System.out.println(opponentRosterSkill);
+        System.out.println("Manager Roster Skill was " + managerRosterSkill);
+        System.out.println("Opponent Roster Skill was " + opponentRosterSkill);
     }
 
     private void displayMatchResult() {
@@ -64,8 +65,10 @@ public class Match {
     private void applyProgress() {
         if (score[0] > score[1]) {
             myTeam.addMoney(100);
+            Difficulty.getInstance().increase();
+        } else {
+            Difficulty.getInstance().reduce();
         }
-        //
         managerRoster.trainPlayers();
     }
 
