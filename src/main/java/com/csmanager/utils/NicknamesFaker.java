@@ -3,25 +3,21 @@ package com.csmanager.utils;
 import com.github.javafaker.Faker;
 
 public class NicknamesFaker {
-    private final Faker faker = new Faker();
+    private static final Faker faker = new Faker();
 
-    public String getName() {
+    public static String getNickname() {
+        return getFirstElement() + getSecondElement();
+    }
+
+    private static String getFirstElement() {
         String firstElement = faker.name().firstName();
         int firstElementCuttingLength = firstElement.length() / 2;
         return firstElement.substring(0, firstElementCuttingLength);
     }
 
-    public String getSecondName() {
+    private static String getSecondElement() {
         String secondElement = faker.name().username();
-        System.out.println(secondElement);
-        int secondElementCuttingLength = secondElement.length() / 2;
-        return secondElement.substring(0, secondElementCuttingLength);
-    }
-
-
-    public static void main(String[] args) {
-        NicknamesFaker nicknamesFaker = new NicknamesFaker();
-        //System.out.println(nicknamesFaker.getName());
-        System.out.println(nicknamesFaker.getSecondName());
+        String cutSecondElement = secondElement.substring(0, secondElement.indexOf('.'));
+        return cutSecondElement.substring(0, cutSecondElement.length() / 2);
     }
 }
