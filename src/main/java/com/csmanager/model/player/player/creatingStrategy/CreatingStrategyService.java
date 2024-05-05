@@ -17,12 +17,12 @@ public class CreatingStrategyService {
         };
     }
 
-    private Player createPlayer(String strategy) {
+    public Player createPlayer(String strategy) {
         setStrategy(strategy);
         return playerCreatingStrategy.createPlayer();
     }
 
-    private List<Player> createPlayers(int count, String strategy) {
+    public List<Player> createPlayers(int count, String strategy) {
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             players.add(createPlayer(strategy));
@@ -31,7 +31,6 @@ public class CreatingStrategyService {
     }
 
     public List<Player> getStarterPlayers() {
-        setStrategy("default");
         return createPlayers(6, "default");
     }
 

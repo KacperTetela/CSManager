@@ -14,13 +14,13 @@ public class Player {
     private int daysInTeams;
     private double consistency;
     private RolesBoth rolesBoth;
+    private StatsManager statsManager;
+    private boolean busy;
+
     /**
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
      * biorac pod uwage rolePointsy oraz bedzie warunkowalo powtarzalnosc na podstawie doswiadczenia liczonego w latach i dniach w druzynir
      */
-    private StatsManager statsManager;
-    private boolean busy;
-
     Player(String name, double difficulty) {
         this.name = name;
         statsManager = new StatsManager();
@@ -51,7 +51,9 @@ public class Player {
         this.busy = busy;
     }
 
-    //getAge and setAge must be initialized for the Jackson library to function properly.
+    /**
+     * getAge and setAge must be initialized for the Jackson library to function properly.
+     */
     public int getAge() {
         return age;
     }
@@ -132,7 +134,6 @@ public class Player {
 /*        addPoints(TRoleType);
         addPoints(CtRoleType);*/
     }
-
 
 
 }

@@ -3,6 +3,7 @@ package com.csmanager.model.player.performance;
 public class Difficulty {
     private static final Difficulty DIFFICULTY = new Difficulty();
     private double difficultyPoints = 1.0;
+    private final double maxDifficultyPoints = 2.0;
 
     private Difficulty() {
     }
@@ -16,7 +17,9 @@ public class Difficulty {
     }
 
     public void increase() {
-        difficultyPoints += 0.05;
+        if (difficultyPoints < maxDifficultyPoints) {
+            difficultyPoints += 0.05;
+        }
     }
 }
 

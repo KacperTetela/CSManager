@@ -10,15 +10,17 @@ import com.csmanager.utils.Utils;
 public class GameService {
     private Team myTeam;
     private Roster playerRoster;
+    private CreatingStrategyService creatingStrategyService;
 
     public GameService() {
     }
 
     public void startGame() {
+        this.creatingStrategyService = new CreatingStrategyService();
         this.myTeam = createTeam();
         do {
             prepareLineup();
-            Match match = prepareMatch();
+            Match match = prepareMatch(creatingStrategyService);
             match.playMatch();
             //branie pod uwagę progresssu
             //wydaj zarobione pieniądze
@@ -33,14 +35,12 @@ public class GameService {
      * Zmienic tak zeby bez wzgledu czy wpiszemy BYALI czy byali z malej bylo traktowane jako to samo
      */
     public Team createTeam() {
-        CreatingStrategyService creatingStrategyService = new CreatingStrategyService();
         return new Team(Utils.askAboutString("Please name your team"), creatingStrategyService.getStarterPlayers());
     }
 
     /**
      * buduje LineUp oraz currentPLayerLineUp za pomoca metody buildLineUP
      */
-
     private void prepareLineup() {
         if (playerRoster == null) {
             playerRoster = buildNewLineUp();
@@ -61,8 +61,8 @@ public class GameService {
         return manuallyCreateLineUp.getRoster();
     }
 
-    private Match prepareMatch() {
-        AutoRosterCreator autoRosterCreator = new AutoRosterCreator();
+    private Match prepareMatch(CreatingStrategyService creatingStrategyService) {
+        AutoRosterCreator autoRosterCreator = new AutoRosterCreator(creatingStrategyService);
         Roster computerRoster = autoRosterCreator.getRoster();
         return new Match(myTeam, playerRoster, computerRoster);
     }

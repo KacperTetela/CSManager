@@ -24,8 +24,8 @@ public enum PlayerPointsScope {
         return potentialVal;
     }
 
-    public double rollStats(double DificultyLevel) {
-        return Math.random() / 4 + 0.2; // 0,2 - 0,45
+    public double rollStats(double difficultyLevel) {
+        return (Math.random() / 4 + 0.2) + difficultyLevel; // (0,2 - 0,45) + difficultyLevel
     }
 }
 
