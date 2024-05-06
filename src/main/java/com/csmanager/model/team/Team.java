@@ -30,6 +30,10 @@ public class Team {
         this.money -= money;
     }
 
+    public int getMoney() {
+        return money;
+    }
+
     @Override
     public String toString() {
         return "\nTeam: " + name +

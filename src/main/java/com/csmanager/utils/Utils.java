@@ -35,7 +35,7 @@ public class Utils {
         return scanner.nextLine();
     }
 
-    public static boolean askAboutboolean(String question) {
+    public static boolean askAboutBoolean(String question) {
         System.out.println(question + ":\n");
         System.out.println("Answer YES or NO");
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class Utils {
         } else if ((s.equalsIgnoreCase("NO")) || s.equalsIgnoreCase("2")) {
             return false;
         } else {
-            return askAboutboolean(question);
+            return askAboutBoolean(question);
         }
     }
 

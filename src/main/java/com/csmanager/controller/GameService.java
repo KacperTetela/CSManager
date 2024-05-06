@@ -1,10 +1,10 @@
 package com.csmanager.controller;
 
-import com.csmanager.model.player.performance.Difficulty;
 import com.csmanager.model.player.player.creatingStrategy.CreatingStrategyService;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
+import com.csmanager.model.shop.market.BuyPlayer;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
 
@@ -12,6 +12,7 @@ public class GameService {
     private Team myTeam;
     private Roster playerRoster;
     private CreatingStrategyService creatingStrategyService;
+    private BuyPlayer buyPlayer;
 
     public GameService() {
     }
@@ -19,12 +20,16 @@ public class GameService {
     public void startGame() {
         this.creatingStrategyService = new CreatingStrategyService();
         this.myTeam = createTeam();
+        this.buyPlayer = new BuyPlayer(myTeam);
         do {
             prepareLineup();
             Match match = prepareMatch(creatingStrategyService);
             match.playMatch();
             //branie pod uwagę progresssu
-            //wydaj zarobione pieniądze
+            if (Utils.askAboutBoolean("Do you want to buy a new player?")) {
+                buyPlayer.launch();
+            }
+
         } while (true); // warunek konca
     }
 
@@ -47,7 +52,7 @@ public class GameService {
             playerRoster = buildNewLineUp();
             return;
         }
-        boolean change = Utils.askAboutboolean("Do you want to change roster?");
+        boolean change = Utils.askAboutBoolean("Do you want to change roster?");
         if (change) {
             playerRoster.closeRoster();
             playerRoster = buildNewLineUp();
