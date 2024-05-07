@@ -24,7 +24,7 @@ public class Utils {
             if (i != 0) {
                 string += "\n";
             }
-            string += player.toString();
+            string += player.getView();
         }
         return string;
     }

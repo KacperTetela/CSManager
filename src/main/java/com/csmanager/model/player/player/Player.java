@@ -66,11 +66,27 @@ public class Player {
         return statsManager;
     }
 
+    public String getView() {
+        String view = "\n" + name +
+                "\n" + age +
+                "\nstats=";
+        for (RoleStats roleStats : statsManager.getAllRoleStats()) {
+            view = view + roleStats.getView();
+        }
+        return view;
+    }
+
     @Override
     public String toString() {
-        return "\n" + name +
-                "\n" + age +
-                "\nstats=" + (statsManager.getAllRoleStats());
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", daysInTeams=" + daysInTeams +
+                ", consistency=" + consistency +
+                ", rolesBoth=" + rolesBoth +
+                ", statsManager=" + statsManager +
+                ", busy=" + busy +
+                '}';
     }
 
     @Override

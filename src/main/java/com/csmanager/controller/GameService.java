@@ -1,9 +1,11 @@
 package com.csmanager.controller;
 
+import com.csmanager.model.match.MatchRules;
 import com.csmanager.model.player.player.creatingStrategy.CreatingStrategyService;
 import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
+import com.csmanager.model.shop.coachPerks.Profitable;
 import com.csmanager.model.shop.market.BuyPlayer;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
@@ -13,6 +15,7 @@ public class GameService {
     private Roster playerRoster;
     private CreatingStrategyService creatingStrategyService;
     private BuyPlayer buyPlayer;
+    private MatchRules matchRules;
 
     public GameService() {
     }
@@ -21,8 +24,10 @@ public class GameService {
         this.creatingStrategyService = new CreatingStrategyService();
         this.myTeam = createTeam();
         this.buyPlayer = new BuyPlayer(myTeam);
+        matchRules = new MatchRules();
         do {
             prepareLineup();
+            buyPerks();
             Match match = prepareMatch(creatingStrategyService);
             match.playMatch();
             //branie pod uwagę progresssu
@@ -31,6 +36,14 @@ public class GameService {
             }
 
         } while (true); // warunek konca
+    }
+
+    private void buyPerks() {
+/*        if (Utils.askAboutBoolean("")) {
+
+        }*/
+        Profitable profitable = new Profitable(matchRules);
+        myTeam.buyPerk(profitable);
     }
 
     /**
@@ -70,7 +83,7 @@ public class GameService {
     private Match prepareMatch(CreatingStrategyService creatingStrategyService) {
         AutoRosterCreator autoRosterCreator = new AutoRosterCreator(creatingStrategyService);
         Roster computerRoster = autoRosterCreator.getRoster();
-        return new Match(myTeam, playerRoster, computerRoster);
+        return new Match(myTeam, playerRoster, computerRoster, matchRules);
     }
 
 }

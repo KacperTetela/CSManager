@@ -15,7 +15,7 @@ public class AutoRosterCreator {
         RoleType[] rolesT = {RoleType.LURKER, RoleType.LURKER, RoleType.RIFLER, RoleType.RIFLER, RoleType.AWPER};
         for (int i = 0; i < 5; i++) {
             Player player;
-            if (i <= 2) {
+            if (i <= 3) {
                 player = creatingStrategyService.createPlayer("default");
             } else {
                 player = creatingStrategyService.createPlayer("above");

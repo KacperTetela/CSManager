@@ -34,10 +34,18 @@ public class RoleStats {
 
     @Override
     public String toString() {
-        return "RoleStats{" +
-                "roleType=" + roleType +
-                ", potentialPoints=" + potentialPoints +
-                ", rolePoints=" + rolePoints +
-                '}';
+        return String.format("""
+                RoleStats{ 
+                roleType=  %s
+                , potentialPoints=  %.2f
+                , rolePoints=  %.2f
+                }""", roleType, potentialPoints, rolePoints);
+    }
+
+    String getView() {
+        return String.format("""
+                Stats roleType = %s  
+                 rolePoints = %.2f
+                  """, roleType, rolePoints);
     }
 }

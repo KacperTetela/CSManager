@@ -9,6 +9,7 @@ public class Match {
     private Roster managerRoster;
     private Roster computerRoster;
     private MatchStage matchStage;
+    private MatchRules matchRules;
     /**
      * The score int array is initialized to store the match result for two teams, respectively for
      * managerRoster, computerRoster
@@ -18,10 +19,11 @@ public class Match {
     private int[] score;
     private int currentRoundNumber = 1;
 
-    public Match(Team myTeam, Roster managerRoster, Roster computerRoster) {
+    public Match(Team myTeam, Roster managerRoster, Roster computerRoster, MatchRules matchRules) {
         this.myTeam = myTeam;
         this.managerRoster = managerRoster;
         this.computerRoster = computerRoster;
+        this.matchRules = matchRules;
         score = new int[2];
         matchStage = MatchStage.CT;
     }
@@ -64,7 +66,8 @@ public class Match {
 
     private void applyProgress() {
         if (score[0] > score[1]) {
-            myTeam.addMoney(100);
+            myTeam.addMoney(matchRules.getPrize());
+            System.out.println(matchRules.getPrize());
             Difficulty.getInstance().increase();
         } else {
             Difficulty.getInstance().reduce();

@@ -2,10 +2,9 @@ package com.csmanager.model.shop.coachPerks;
 
 import com.csmanager.model.match.MatchRules;
 
-public class PotentialVisibility extends AbstractPerk {
-    private int level;
-
-    public PotentialVisibility(MatchRules matchRules) {
+public class Profitable extends AbstractPerk {
+    private static final int VALUE = 500;
+    public Profitable(MatchRules matchRules) {
         super(matchRules);
     }
 
@@ -16,19 +15,21 @@ public class PotentialVisibility extends AbstractPerk {
 
     @Override
     public void turnOn() {
+        matchRules.changePrize(VALUE);
     }
 
     @Override
     public void turnOff() {
+        matchRules.changePrize(-VALUE);
     }
 
     @Override
     public void activate() {
-        //bedzie sout potential
+
     }
 
     @Override
     public String description() {
-        return "AbstractPerk allows you to see the potential of players.";
+        return "Gives you the opportunity to earn more per match";
     }
 }
