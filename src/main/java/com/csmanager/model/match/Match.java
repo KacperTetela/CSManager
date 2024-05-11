@@ -16,7 +16,7 @@ public class Match {
      * score[0] = managerScore
      * score[1] = computerScore
      */
-    private int[] score;
+    private final int[] score;
     private int currentRoundNumber = 1;
 
     public Match(Team myTeam, Roster managerRoster, Roster computerRoster, MatchRules matchRules) {
@@ -67,9 +67,11 @@ public class Match {
     private void applyProgress() {
         if (score[0] > score[1]) {
             myTeam.addMoney(matchRules.getPrize());
-            System.out.println(matchRules.getPrize());
+            System.out.println("You receive: $" + matchRules.getPrize() + " for winning the match");
             Difficulty.getInstance().increase();
         } else {
+            myTeam.addMoney(matchRules.getLossBounty());
+            System.out.println("You receive: $" + matchRules.getLossBounty() + " for losing the match");
             Difficulty.getInstance().reduce();
         }
         managerRoster.trainPlayers();

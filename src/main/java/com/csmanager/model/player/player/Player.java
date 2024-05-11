@@ -16,6 +16,7 @@ public class Player {
     private RolesBoth rolesBoth;
     private StatsManager statsManager;
     private boolean busy;
+    private int marketValue;
 
     /**
      * stworzyc nowa klase PerformanceScope ktora bedzie raz na mecz tworzyla realny perforamnce gracza za pomoca jakiejs skali,
@@ -62,6 +63,14 @@ public class Player {
         this.age = age;
     }
 
+    public int getMarketValue() {
+        return marketValue;
+    }
+
+    public void setMarketValue(int marketValue) {
+        this.marketValue = marketValue;
+    }
+
     public StatsManager getStatsManager() {
         return statsManager;
     }
@@ -85,7 +94,7 @@ public class Player {
                 ", consistency=" + consistency +
                 ", rolesBoth=" + rolesBoth +
                 ", statsManager=" + statsManager +
-                ", busy=" + busy +
+                ", MarketValue=" + marketValue +
                 '}';
     }
 

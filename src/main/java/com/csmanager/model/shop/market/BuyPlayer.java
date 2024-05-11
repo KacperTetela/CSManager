@@ -11,7 +11,6 @@ import java.util.List;
 public class BuyPlayer {
     private final List<Player> availablePlayers = new ArrayList<>();
     private int selectedPlayerNumber;
-    private final int selectedPlayerPrice = 500;
     private final Team team;
 
     public BuyPlayer(Team team) {
@@ -21,8 +20,12 @@ public class BuyPlayer {
 
     public void launch() {
         displayAvailablePlayers();
-        moveToTeam();
-        payForPlayer();
+        /**
+         * If Manager has enough money to buy new player boolean will return true, else false
+         */
+        if (payForPlayer()) {
+            moveToTeam();
+        }
     }
 
     private void generatePlayers() {
@@ -39,16 +42,18 @@ public class BuyPlayer {
     }
 
     private void moveToTeam() {
-        int index = selectedPlayerNumber;
-        team.addPlayer(availablePlayers.get(index - 1));
-        availablePlayers.remove(index - 1);
+        team.addPlayer(availablePlayers.get(selectedPlayerNumber - 1));
+        availablePlayers.remove(selectedPlayerNumber - 1);
     }
 
-    private void payForPlayer() {
-        if (team.getMoney() >= selectedPlayerPrice) {
-            team.removeMoney(500);
+    private boolean payForPlayer() {
+        int getMarketValue = availablePlayers.get(selectedPlayerNumber - 1).getMarketValue();
+        if (team.getMoney() >= getMarketValue) {
+            team.removeMoney(getMarketValue);
+            return true;
         } else {
             System.out.println("You do not have enough money!");
+            return false;
         }
     }
 }

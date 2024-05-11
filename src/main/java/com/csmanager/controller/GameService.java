@@ -27,7 +27,7 @@ public class GameService {
         matchRules = new MatchRules();
         do {
             prepareLineup();
-            buyPerks();
+            //buyPerks();
             Match match = prepareMatch(creatingStrategyService);
             match.playMatch();
             //branie pod uwagę progresssu

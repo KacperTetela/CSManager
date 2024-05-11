@@ -6,32 +6,33 @@
         {
           "roleType": "ANCHOR",
           "potentialPoints": 0.13726208459929257,
-          "rolePoints": 0.3387688467517408
+          "rolePoints": 2.3387688467517408
         },
         {
           "roleType": "AWPER",
           "potentialPoints": 0.24072810824957294,
-          "rolePoints": 0.4445173085884235
+          "rolePoints": 1.7445173085884235
         },
         {
           "roleType": "ROTATOR",
           "potentialPoints": 0.24911487653478814,
-          "rolePoints": 0.34250490325245425
+          "rolePoints": 2.34250490325245425
         },
         {
           "roleType": "RIFLER",
           "potentialPoints": 0.21166370057962122,
-          "rolePoints": 0.35982909673251817
+          "rolePoints": 2.35982909673251817
         },
         {
           "roleType": "LURKER",
-          "potentialPoints": 0.10718406420501854,
-          "rolePoints": 0.4167009528169556
+          "potentialPoints": 0.90718406420501854,
+          "rolePoints": 3.9167009528169556
         }
       ]
     },
     "busy": false,
-    "age": 22
+    "age": 22,
+    "marketValue": 500
   },
   {
     "name": "byali",
@@ -40,7 +41,7 @@
         {
           "roleType": "ANCHOR",
           "potentialPoints": 0.13726208459929257,
-          "rolePoints": 0.3387688467517408
+          "rolePoints": 1.3387688467517408
         },
         {
           "roleType": "AWPER",
@@ -50,21 +51,22 @@
         {
           "roleType": "ROTATOR",
           "potentialPoints": 0.24911487653478814,
-          "rolePoints": 0.34250490325245425
+          "rolePoints": 1.34250490325245425
         },
         {
           "roleType": "RIFLER",
           "potentialPoints": 0.21166370057962122,
-          "rolePoints": 0.35982909673251817
+          "rolePoints": 1.35982909673251817
         },
         {
           "roleType": "LURKER",
           "potentialPoints": 0.10718406420501854,
-          "rolePoints": 0.4167009528169556
+          "rolePoints": 1.4167009528169556
         }
       ]
     },
     "busy": false,
-    "age": 21
+    "age": 21,
+    "marketValue": 1500
   }
 ]

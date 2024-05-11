@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class Team {
-    private String name;
-    private List<Player> players;
+    private final String name;
+    private final List<Player> players;
     private int money;
     private Player leader;
     private List<AbstractPerk> abstractPerks = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Team {
     public Team(String name, List<Player> players) {
         this.name = name;
         this.players = players;
-        this.money = 1000;
+        this.money = 100;
     }
 
     public void addPlayer(Player player) {
@@ -40,7 +40,7 @@ public class Team {
     @Override
     public String toString() {
         return "\nTeam: " + name +
-                "\nmoney=" + money +
+                "\nmoney: " + money +
                 "\nPlayers:\n" +
                 Utils.createListDisplay(players);
     }
@@ -66,15 +66,3 @@ public class Team {
         abstractPerk.turnOn();
     }
 }
-
-
-/*
- *
- *
- *
- *
- *
- * */
-
-
-
