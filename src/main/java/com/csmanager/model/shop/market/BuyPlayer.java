@@ -35,7 +35,7 @@ public class BuyPlayer {
 
     private void displayAvailablePlayers() {
         for (int i = 1; i < (availablePlayers.size() + 1); i++) {
-            System.out.println("\n" + i + ". " + availablePlayers.get(i - 1) + "\n");
+            System.out.println("\n" + i + ". " + availablePlayers.get(i - 1).getView(team.getStatsVisibilityLevel() > 0) + "\n");
         }
         selectedPlayerNumber = Utils.askAboutInt("Which player do you pick up?\n" +
                 "select 0 to cancel");

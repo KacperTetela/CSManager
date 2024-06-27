@@ -1,5 +1,6 @@
 package com.csmanager.model.team;
 
+import com.csmanager.model.match.MatchRules;
 import com.csmanager.model.player.player.Player;
 import com.csmanager.model.shop.coachPerks.AbstractPerk;
 import com.csmanager.utils.Utils;
@@ -14,6 +15,7 @@ public class Team {
     private int money;
     private Player leader;
     private List<AbstractPerk> abstractPerks = new ArrayList<>();
+    private static int statsVisibilityLevel = 0;
 
     public Team(String name, List<Player> players) {
         this.name = name;
@@ -42,7 +44,7 @@ public class Team {
         return "\nTeam: " + name +
                 "\nmoney: " + money +
                 "\nPlayers:\n" +
-                Utils.createListDisplay(players);
+                Utils.createListDisplay(players, (statsVisibilityLevel > 0));
     }
 
     public Optional<Player> findPlayerNotBusyByName(String name) {
@@ -64,5 +66,13 @@ public class Team {
         }
         abstractPerks.add(abstractPerk);
         abstractPerk.turnOn();
+    }
+
+    public static void increaseStatsVisibility() {
+        statsVisibilityLevel++;
+    }
+
+    public static int getStatsVisibilityLevel() {
+        return statsVisibilityLevel;
     }
 }

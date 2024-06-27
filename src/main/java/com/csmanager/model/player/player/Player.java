@@ -75,12 +75,11 @@ public class Player {
         return statsManager;
     }
 
-    public String getView() {
+    public String getView(boolean areStatsEnable) {
         String view = "\n" + name +
-                "\n" + age +
-                "\nstats=";
+                "\n" + age + "\n stats = ";
         for (RoleStats roleStats : statsManager.getAllRoleStats()) {
-            view = view + roleStats.getView();
+            view += roleStats.getView(areStatsEnable);
         }
         return view;
     }
@@ -136,8 +135,6 @@ public class Player {
     }
 
     public double getSkill(Match match) {
-        //zwraca nam skila danego gracza w danym meczu w danym etapie gry
-        System.out.println(this.toString() + rolesBoth.getSkill(match));
         return rolesBoth.getSkill(match);
     }
 

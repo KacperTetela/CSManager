@@ -1,5 +1,7 @@
 package com.csmanager.model.match;
 
+import com.csmanager.model.team.Team;
+
 public class MatchRules {
     private int prize = 200;
     private int lossBounty = 100;

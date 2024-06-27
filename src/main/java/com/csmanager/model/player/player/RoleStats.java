@@ -42,10 +42,20 @@ public class RoleStats {
                 }""", roleType, potentialPoints, rolePoints);
     }
 
-    String getView() {
-        return String.format("""
+    String getView(boolean areStatsEnable) {
+
+        int valueOfVisibility = 1;
+        {
+
+        }
+
+        if (areStatsEnable) {
+            String view = String.format("""
                 Stats roleType = %s  
                  rolePoints = %.2f
                   """, roleType, rolePoints);
-    }
+            return view;
+        }
+        return "?";
+      }
 }

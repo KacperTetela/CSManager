@@ -6,6 +6,7 @@ import com.csmanager.model.roster.*;
 import com.csmanager.model.match.Match;
 import com.csmanager.model.roster.rosterLock.RosterLockFacade;
 import com.csmanager.model.shop.coachPerks.Profitable;
+import com.csmanager.model.shop.coachPerks.StatsVisibility;
 import com.csmanager.model.shop.market.BuyPlayer;
 import com.csmanager.model.team.Team;
 import com.csmanager.utils.Utils;
@@ -34,6 +35,7 @@ public class GameService {
             if (Utils.askAboutBoolean("Do you want to buy a new player?")) {
                 buyPlayer.launch();
             }
+            buyPerks();
 
         } while (true); // warunek konca
     }
@@ -42,8 +44,8 @@ public class GameService {
 /*        if (Utils.askAboutBoolean("")) {
 
         }*/
-        Profitable profitable = new Profitable(matchRules);
-        myTeam.buyPerk(profitable);
+        StatsVisibility statsVisibility = new StatsVisibility(matchRules);
+        myTeam.buyPerk(statsVisibility);
     }
 
     /**

@@ -1,11 +1,12 @@
 package com.csmanager.model.shop.coachPerks;
 
 import com.csmanager.model.match.MatchRules;
+import com.csmanager.model.team.Team;
 
-public class PotentialVisibility extends AbstractPerk {
+public class StatsVisibility extends AbstractPerk {
     private int level;
 
-    public PotentialVisibility(MatchRules matchRules) {
+    public StatsVisibility(MatchRules matchRules) {
         super(matchRules);
     }
 
@@ -16,6 +17,7 @@ public class PotentialVisibility extends AbstractPerk {
 
     @Override
     public void turnOn() {
+        Team.increaseStatsVisibility();
     }
 
     @Override
@@ -24,11 +26,11 @@ public class PotentialVisibility extends AbstractPerk {
 
     @Override
     public void activate() {
-        //bedzie sout potential
+
     }
 
     @Override
     public String description() {
-        return "PotentialVisibility allows you to see the potential of players.";
+        return "StatsVisibility allows you to see the stats of players.";
     }
 }
