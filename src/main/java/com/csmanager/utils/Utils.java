@@ -18,7 +18,7 @@ public class Utils {
         return "[" + string + "]";
     }
 
-    public static String createListDisplay(List<Player> list, boolean areStatsEnable) {
+    public static String createListDisplay(List<Player> list, int areStatsEnable) {
         String string = "";
         for (int i = 0; i < list.size(); i++) {
             Player player = list.get(i);

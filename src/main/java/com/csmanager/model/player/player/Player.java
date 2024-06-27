@@ -75,7 +75,7 @@ public class Player {
         return statsManager;
     }
 
-    public String getView(boolean areStatsEnable) {
+    public String getView(int areStatsEnable) {
         String view = "\n" + name +
                 "\n" + age + "\n stats = ";
         for (RoleStats roleStats : statsManager.getAllRoleStats()) {

@@ -44,7 +44,7 @@ public class Team {
         return "\nTeam: " + name +
                 "\nmoney: " + money +
                 "\nPlayers:\n" +
-                Utils.createListDisplay(players, (statsVisibilityLevel > 0));
+                Utils.createListDisplay(players, statsVisibilityLevel);
     }
 
     public Optional<Player> findPlayerNotBusyByName(String name) {
