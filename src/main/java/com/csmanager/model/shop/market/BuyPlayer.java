@@ -20,12 +20,14 @@ public class BuyPlayer {
 
     public void launch() {
         displayAvailablePlayers();
+        if (selectedPlayerNumber > 0 && selectedPlayerNumber < availablePlayers.size()) {
+            if (payForPlayer()) {
+                moveToTeam();
+            }
+        }
         /**
          * If Manager has enough money to buy new player boolean will return true, else false
          */
-        if (payForPlayer()) {
-            moveToTeam();
-        }
     }
 
     private void generatePlayers() {

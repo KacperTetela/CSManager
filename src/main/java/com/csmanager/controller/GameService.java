@@ -87,5 +87,4 @@ public class GameService {
         Roster computerRoster = autoRosterCreator.getRoster();
         return new Match(myTeam, playerRoster, computerRoster, matchRules);
     }
-
 }

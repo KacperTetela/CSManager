@@ -25,7 +25,7 @@ public class Utils {
             if (i != 0) {
                 string += "\n";
             }
-            string += player.getView(areStatsEnable);
+            string += i + 1 + ". " + player.getView(areStatsEnable) + "\n";
         }
         return string;
     }
