@@ -1,0 +1,1 @@
+An application simulating the tasks and decisions of an e-sports team coach in the game Counter-Strike. Built with Java SE 17 and Maven, it utilizes design patterns to ensure scalable code. The application is under continuous development and is intended to eventually be provided as an API.
